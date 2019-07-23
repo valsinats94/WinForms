@@ -3,7 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.28307.168
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PCConfigurationTool", "PCConfigurationTool\PCConfigurationTool.csproj", "{44F789EC-D1CB-4842-96FC-30C1FF08B16B}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PCConfigurationTool.Shell", "PCConfigurationTool\PCConfigurationTool.Shell.csproj", "{44F789EC-D1CB-4842-96FC-30C1FF08B16B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PCConfigurationTool.Core", "PCConfigurationTool.Core\PCConfigurationTool.Core.csproj", "{1844EBC0-9D5F-4025-9939-B0B3823CE97B}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +17,10 @@ Global
 		{44F789EC-D1CB-4842-96FC-30C1FF08B16B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{44F789EC-D1CB-4842-96FC-30C1FF08B16B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{44F789EC-D1CB-4842-96FC-30C1FF08B16B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1844EBC0-9D5F-4025-9939-B0B3823CE97B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1844EBC0-9D5F-4025-9939-B0B3823CE97B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1844EBC0-9D5F-4025-9939-B0B3823CE97B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1844EBC0-9D5F-4025-9939-B0B3823CE97B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

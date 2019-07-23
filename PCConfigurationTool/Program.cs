@@ -1,4 +1,5 @@
-﻿using System;
+﻿using PCConfigurationTool.Core;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -16,6 +17,8 @@ namespace PCConfigurationTool
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
+            Bootstrapper bootstrapper = new Bootstrapper();
+
             Application.Run(new Form1());
         }
     }
