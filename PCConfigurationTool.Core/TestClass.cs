@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace PCConfigurationTool.Core
 {
-    //public class SimpleInjectorContainer : Container, IContainer
-    //{
-    //}
+    public class TestClass : ITestInterface
+    {
+    }
 }

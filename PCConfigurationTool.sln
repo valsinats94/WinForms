@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PCConfigurationTool.Shell",
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PCConfigurationTool.Core", "PCConfigurationTool.Core\PCConfigurationTool.Core.csproj", "{1844EBC0-9D5F-4025-9939-B0B3823CE97B}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PCConfigurationTool.Database", "PCConfigurationTool.Database\PCConfigurationTool.Database.csproj", "{012EFE46-9691-4B10-A00E-96470CB86AEB}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{1844EBC0-9D5F-4025-9939-B0B3823CE97B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{1844EBC0-9D5F-4025-9939-B0B3823CE97B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{1844EBC0-9D5F-4025-9939-B0B3823CE97B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{012EFE46-9691-4B10-A00E-96470CB86AEB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{012EFE46-9691-4B10-A00E-96470CB86AEB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{012EFE46-9691-4B10-A00E-96470CB86AEB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{012EFE46-9691-4B10-A00E-96470CB86AEB}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -1,9 +1,11 @@
 ﻿using PCConfigurationTool.Core;
+using PCConfigurationTool.Core.Interfaces;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Unity;
 
 namespace PCConfigurationTool
 {
@@ -17,9 +19,12 @@ namespace PCConfigurationTool
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Bootstrapper bootstrapper = new Bootstrapper();
-
-            Application.Run(new Form1());
+            IUnityContainer container = new UnityContainer();
+            
+            Bootstrapper bootstrapper = new Bootstrapper(new UnityContainer());
+            
+            
+            Application.Run(new Form1(container.Resolve<IFormManager>()));
         }
     }
 }

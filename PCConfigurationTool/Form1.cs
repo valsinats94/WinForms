@@ -1,4 +1,5 @@
-﻿using System;
+﻿using PCConfigurationTool.Core.Interfaces;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,8 +13,11 @@ namespace PCConfigurationTool
 {
     public partial class Form1 : Form
     {
-        public Form1()
+        IFormManager formManager;
+
+        public Form1(IFormManager formManager)
         {
+            this.formManager = formManager;
             InitializeComponent();
         }
     }
