@@ -1,7 +1,10 @@
 ﻿using PCConfigurationTool.Core.Interfaces;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel.Composition;
+using System.ComponentModel.Composition.Hosting;
 using System.Linq;
+using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 using Unity;
@@ -11,6 +14,9 @@ namespace PCConfigurationTool.Core
     public class Bootstrapper
     {
         private IUnityContainer container;
+
+        [Export]
+        public CompositionContainer CompositionContainer { get; private set; }
 
         public Bootstrapper(IUnityContainer container)
         {
@@ -29,14 +35,21 @@ namespace PCConfigurationTool.Core
 
         private void InitializeModules()
         {
-            Type type = typeof(IModule);
-            IEnumerable<Type> types = AppDomain.CurrentDomain.GetAssemblies()
-                                                        .SelectMany(s => s.GetTypes())
-                                                        .Where(p => type.IsAssignableFrom(p));
-            var a = AppDomain.CurrentDomain.GetAssemblies();
-            var b = AppDomain.CurrentDomain.GetAssemblies()
-                                                        .SelectMany(s => s.GetTypes()
-                                                        .Where(p => p.BaseType == type));
+            var catalog = new AggregateCatalog();
+            catalog.Catalogs.Add(new AssemblyCatalog(Assembly.GetExecutingAssembly()));
+            CompositionContainer = new CompositionContainer(catalog);
+            CompositionContainer.ComposeParts(this);
+
+            var a = CompositionContainer.GetExportedValues<IModule>();
+
+            //Type type = typeof(IModule);
+            //IEnumerable<Type> types = AppDomain.CurrentDomain.GetAssemblies()
+            //                                            .SelectMany(s => s.GetTypes())
+            //                                            .Where(p => type.IsAssignableFrom(p));
+            //var a = AppDomain.CurrentDomain.GetAssemblies();
+            //var b = AppDomain.CurrentDomain.GetAssemblies()
+            //                                            .SelectMany(s => s.GetTypes()
+            //                                            .Where(p => p.BaseType == type));
         }
     }
 }
