@@ -64,7 +64,7 @@ namespace PCConfigurationTool.Core
             }
             
             //////TODO
-            //////Search for PlugIns - same approach can be used
+            //////Search for PlugIns - approx same approach can be used
             //CompositionContainer = new CompositionContainer(catalog);
             //CompositionContainer.ComposeParts(this);
 
@@ -81,9 +81,8 @@ namespace PCConfigurationTool.Core
         private void RegisterComponents(Assembly assembly)
         {
             Type type = typeof(IModule);
-            var types = assembly.GetTypes();
 
-            IEnumerable<Type> modules = types.Where(p => type.IsAssignableFrom(p));
+            IEnumerable<Type> modules = assembly.GetTypes().Where(p => type.IsAssignableFrom(p));
 
             if (modules.Count() > 1)
                 throw new Exception($"You have more than one module class defined in {assembly.FullName}");

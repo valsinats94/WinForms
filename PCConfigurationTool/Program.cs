@@ -24,8 +24,7 @@ namespace PCConfigurationTool
             Bootstrapper bootstrapper = new Bootstrapper(container);
 
             var a = container.Resolve<IDatabaseService>();
-            Application.Run(new Form1(container.Resolve<IFormManager>()));
-            
+            Application.Run(new Form1(container.Resolve<IFormManager>()));            
         }
     }
 }
