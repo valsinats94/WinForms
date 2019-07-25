@@ -12,7 +12,7 @@ using Unity;
 namespace PCConfigurationTool.Database
 {
     [Export(typeof(IModule))]
-    public class DatabaseModule : ModuleBase
+    public class DatabaseModule : IModule
     {
         IUnityContainer container;
 
@@ -22,14 +22,9 @@ namespace PCConfigurationTool.Database
             RegisterServices();
         }
 
-        public override void RegisterServices()
+        public void RegisterServices()
         {
-            DependancyInjector.Register<IDatabaseService, DatabaseService>();
-        }
-
-        protected override void Initialize()
-        {
-            RegisterServices();
+            container.RegisterType<IDatabaseService, DatabaseService>();
         }
     }
 }
