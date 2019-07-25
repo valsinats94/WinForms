@@ -15,9 +15,9 @@ namespace PCConfigurationTool
     {
         IFormManager formManager;
 
-        public Form1(IFormManager formManager)
+        public Form1(/*IFormManager formManager*/)
         {
-            this.formManager = formManager;
+            //this.formManager = formManager;
             InitializeComponent();
         }
     }
