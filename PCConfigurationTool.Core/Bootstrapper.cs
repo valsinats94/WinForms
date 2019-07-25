@@ -30,7 +30,9 @@ namespace PCConfigurationTool.Core
 
         private void InitializeTools()
         {
-            container.RegisterSingleton<IFormManager, FormManager>();
+            DependancyInjector.Register<IFormManager, FormManager>();
+            //DependancyInjector.AddExtension<ModuleBase>();
+            //container.RegisterSingleton<IFormManager, FormManager>();
         }
 
         private void InitializeModules()

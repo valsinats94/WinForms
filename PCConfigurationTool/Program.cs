@@ -20,11 +20,11 @@ namespace PCConfigurationTool
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             IUnityContainer container = new UnityContainer();
+            Bootstrapper bootstrapper = new Bootstrapper(container);
             
-            Bootstrapper bootstrapper = new Bootstrapper(new UnityContainer());
             
-            
-            Application.Run(new Form1(container.Resolve<IFormManager>()));
+            Application.Run(new Form1(DependancyInjector.Retrieve<IFormManager>()));
+            var a = DependancyInjector.Retrieve<IDatabaseService>();
         }
     }
 }

@@ -5,9 +5,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace PCConfigurationTool.Core
+namespace PCConfigurationTool.Database.Services.Database
 {
-    //public class SimpleInjectorContainer : Container, IContainer
-    //{
-    //}
+    public class DatabaseService : IDatabaseService
+    {
+    }
 }

@@ -1,4 +1,6 @@
-﻿using PCConfigurationTool.Core.Interfaces;
+﻿using PCConfigurationTool.Core;
+using PCConfigurationTool.Core.Interfaces;
+using PCConfigurationTool.Database.Services.Database;
 using System;
 using System.Collections.Generic;
 using System.Composition;
@@ -10,7 +12,7 @@ using Unity;
 namespace PCConfigurationTool.Database
 {
     [Export(typeof(IModule))]
-    public class DatabaseModule : IModule
+    public class DatabaseModule : ModuleBase
     {
         IUnityContainer container;
 
@@ -20,9 +22,14 @@ namespace PCConfigurationTool.Database
             RegisterServices();
         }
 
-        public void RegisterServices()
+        public override void RegisterServices()
         {
-            
+            DependancyInjector.Register<IDatabaseService, DatabaseService>();
+        }
+
+        protected override void Initialize()
+        {
+            RegisterServices();
         }
     }
 }

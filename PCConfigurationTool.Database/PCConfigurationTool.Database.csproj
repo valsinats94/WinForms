@@ -68,6 +68,7 @@
   <ItemGroup>
     <Compile Include="DatabaseModule.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Services\Database\DatabaseService.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\PCConfigurationTool.Core\PCConfigurationTool.Core.csproj">
