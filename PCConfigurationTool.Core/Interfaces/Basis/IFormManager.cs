@@ -5,7 +5,7 @@ namespace PCConfigurationTool.Core.Interfaces
 {
     public interface IFormManager
     {
-        void ShowModelessForm<TForm>() where TForm : Form;
-        DialogResult ShowModalForm<TForm>() where TForm : Form;
+        void ShowModelessForm<TForm>(Form formParam = null) where TForm : Form;
+        DialogResult ShowModalForm<TForm>(Form formParam = null) where TForm : Form;
     }
 }

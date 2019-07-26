@@ -46,6 +46,7 @@ namespace PCConfigurationTool.WinFormsPresentation
             this.lblComponentPrice = new System.Windows.Forms.Label();
             this.tbxPrice = new System.Windows.Forms.TextBox();
             this.btnAddPicture = new System.Windows.Forms.Button();
+            this.btnCancel = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.picComponentPicture)).BeginInit();
             this.SuspendLayout();
             // 
@@ -177,13 +178,24 @@ namespace PCConfigurationTool.WinFormsPresentation
             this.btnAddPicture.UseVisualStyleBackColor = true;
             this.btnAddPicture.Click += new System.EventHandler(this.btnAddPicture_Click);
             // 
+            // btnCancel
+            // 
+            this.btnCancel.Location = new System.Drawing.Point(408, 394);
+            this.btnCancel.Name = "btnCancel";
+            this.btnCancel.Size = new System.Drawing.Size(182, 52);
+            this.btnCancel.TabIndex = 12;
+            this.btnCancel.Text = "Cancel";
+            this.btnCancel.UseVisualStyleBackColor = true;
+            this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
+            // 
             // AddComponentForm
             // 
-            this.AccessibleName = "ltvExistingComponents";
+            this.AccessibleName = "AddComponentForm";
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
             this.ClientSize = new System.Drawing.Size(800, 461);
+            this.Controls.Add(this.btnCancel);
             this.Controls.Add(this.btnAddPicture);
             this.Controls.Add(this.tbxPrice);
             this.Controls.Add(this.lblComponentPrice);
@@ -199,7 +211,7 @@ namespace PCConfigurationTool.WinFormsPresentation
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.MaximizeBox = false;
             this.MinimumSize = new System.Drawing.Size(810, 500);
-            this.Name = "AddComponentForm";
+           
             this.Padding = new System.Windows.Forms.Padding(5);
             this.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Hide;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
@@ -228,5 +240,6 @@ namespace PCConfigurationTool.WinFormsPresentation
         private System.Windows.Forms.Label lblComponentPrice;
         private System.Windows.Forms.TextBox tbxPrice;
         private System.Windows.Forms.Button btnAddPicture;
+        private Button btnCancel;
     }
 }

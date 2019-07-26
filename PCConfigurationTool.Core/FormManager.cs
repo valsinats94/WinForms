@@ -20,9 +20,9 @@ namespace PCConfigurationTool.Core
             this.openedForms = new Dictionary<Type, Form>();
         }
 
-        public void ShowModelessForm<TForm>() where TForm : Form
+        public void ShowModelessForm<TForm>(Form formParam = null) where TForm : Form
         {
-            Form form;
+            Form form = formParam;
             if (this.openedForms.ContainsKey(typeof(TForm)))
             {
                 // a form can be held open in the background, somewhat like 
@@ -32,7 +32,7 @@ namespace PCConfigurationTool.Core
             }
             else
             {
-                form = this.GetForm<TForm>();
+                form = formParam ?? this.GetForm<TForm>();
                 this.openedForms.Add(form.GetType(), form);
                 // the form will be closed and disposed when form.Closed is called
                 // Remove it from the cached instances so it can be recreated
@@ -42,8 +42,11 @@ namespace PCConfigurationTool.Core
             form.Show();
         }
 
-        public DialogResult ShowModalForm<TForm>() where TForm : Form
+        public DialogResult ShowModalForm<TForm>(Form formParam = null) where TForm : Form
         {
+            if (formParam != null)
+                return formParam.ShowDialog();
+
             using (var form = this.GetForm<TForm>())
             {
                 return form.ShowDialog();

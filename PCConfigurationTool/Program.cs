@@ -26,7 +26,7 @@ namespace PCConfigurationTool
 
             var a = container.Resolve<IDatabaseService>();
 
-            Form form = container.Resolve<IAddComponentView>() as Form;
+            Form form = container.Resolve<IEntryView>() as Form;
 
             //container.Resolve<IFormManager>().ShowModalForm<form>();
 

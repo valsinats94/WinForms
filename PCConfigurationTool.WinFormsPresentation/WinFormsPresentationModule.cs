@@ -19,7 +19,9 @@ namespace PCConfigurationTool.WinFormsPresentation
 
         private void RegisterMenuItems()
         {
+            container.RegisterType<IEntryView, EntryForm>();
             container.RegisterType<IAddComponentView, AddComponentForm>();
+            container.RegisterType<IConfigurePCView, ConfigurePCForm>();
         }
 
         public void RegisterServices()
