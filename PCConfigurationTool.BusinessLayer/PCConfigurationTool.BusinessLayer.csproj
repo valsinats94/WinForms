@@ -49,6 +49,7 @@
   <ItemGroup>
     <Compile Include="BusinessLayerModule.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ViewModels\AddComponentViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\PCConfigurationTool.Core\PCConfigurationTool.Core.csproj">

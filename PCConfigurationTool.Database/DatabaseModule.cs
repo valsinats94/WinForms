@@ -1,12 +1,8 @@
-﻿using PCConfigurationTool.Core;
-using PCConfigurationTool.Core.Interfaces;
+﻿using PCConfigurationTool.Core.Interfaces;
+using PCConfigurationTool.Core.Interfaces.Models;
+using PCConfigurationTool.Database.Models;
 using PCConfigurationTool.Database.Services.Database;
-using System;
-using System.Collections.Generic;
 using System.Composition;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using Unity;
 
 namespace PCConfigurationTool.Database
@@ -20,11 +16,17 @@ namespace PCConfigurationTool.Database
         {
             this.container = container;
             RegisterServices();
+            RegisterModels();
         }
 
         public void RegisterServices()
         {
             container.RegisterType<IDatabaseService, DatabaseService>();
+        }
+
+        private void RegisterModels()
+        {
+            container.RegisterType<IPCComponent, PCComponent>();
         }
     }
 }

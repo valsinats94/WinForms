@@ -68,11 +68,14 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Bootstrapper.cs" />
+    <Compile Include="Common\Enums.cs" />
     <Compile Include="FormManager.cs" />
     <Compile Include="Interfaces\Basis\IView.cs" />
+    <Compile Include="Interfaces\Models\IPCComponent.cs" />
     <Compile Include="Interfaces\Services\IDatabaseService.cs" />
     <Compile Include="Interfaces\Basis\IFormManager.cs" />
     <Compile Include="Interfaces\Basis\IModule.cs" />
+    <Compile Include="Interfaces\ViewModels\IAddComponentViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -81,7 +84,7 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Interfaces\Models\" />
+    <Content Include="Resources\arduino-vector-ico-6.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
