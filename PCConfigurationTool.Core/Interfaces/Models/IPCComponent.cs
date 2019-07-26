@@ -20,6 +20,8 @@ namespace PCConfigurationTool.Core.Interfaces.Models
 
         decimal Price { get; set; }
 
+        byte[] Image { get; set; }
+
         EntityStatus Status { get; set; }
     }
 }

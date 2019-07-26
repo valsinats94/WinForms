@@ -11,16 +11,18 @@ namespace PCConfigurationTool.Database
 {
     public class PCConfigurationContext : DbContext
     {
-        protected PCConfigurationContext()
+
+        public PCConfigurationContext()
             :base("name=PCConfigurationConnectionString")
         {
-           
         }
 
         public DbSet<PCComponent> PCComponents { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder builder)
         {
+            base.OnModelCreating(builder);
+
             builder.Entity<PCComponent>()
                 .HasKey(pcc => pcc.ID);
         }

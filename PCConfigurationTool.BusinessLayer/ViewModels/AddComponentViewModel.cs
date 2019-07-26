@@ -1,6 +1,7 @@
 ﻿using PCConfigurationTool.Core.Common;
 using PCConfigurationTool.Core.Interfaces;
 using PCConfigurationTool.Core.Interfaces.Models;
+using PCConfigurationTool.Core.Interfaces.Services;
 using PCConfigurationTool.Core.Interfaces.ViewModels;
 using System.Collections.Generic;
 using Unity;
@@ -59,9 +60,10 @@ namespace PCConfigurationTool.BusinessLayer.ViewModels
             pCComponent.Manufacturer = Manufacturer;
             pCComponent.Name = Name;
             pCComponent.Price = Price;
+            pCComponent.Image = Image;
             pCComponent.Status = Status;
 
-            //container.Resolve<IDatabaseService>().Save();
+            container.Resolve<IPCComponentDatabaseService>().Add(pCComponent);
 
             return true;
         }

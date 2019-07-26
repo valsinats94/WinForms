@@ -1,5 +1,6 @@
 ﻿using PCConfigurationTool.Core.Interfaces;
 using PCConfigurationTool.Core.Interfaces.Models;
+using PCConfigurationTool.Core.Interfaces.Services;
 using PCConfigurationTool.Database.Models;
 using PCConfigurationTool.Database.Services.Database;
 using System.Composition;
@@ -23,6 +24,7 @@ namespace PCConfigurationTool.Database
         public void RegisterServices()
         {
             container.RegisterType<IDatabaseService, DatabaseService>();
+            container.RegisterType<IPCComponentDatabaseService, PCComponentDatabaseService>();
         }
 
         private void RegisterModels()

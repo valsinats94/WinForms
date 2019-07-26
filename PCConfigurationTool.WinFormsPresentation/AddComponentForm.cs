@@ -1,8 +1,11 @@
 ﻿using PCConfigurationTool.Core.Interfaces.ViewModels;
 using PCConfigurationTool.Core.Interfaces.Views;
 using System;
+using System.Drawing;
 using System.Windows.Forms;
 using Unity;
+using PCConfigurationTool.Core.Common.Helpers;
+using ImageConverter = PCConfigurationTool.Core.Common.Helpers.ImageConverter;
 
 namespace PCConfigurationTool.WinFormsPresentation
 {
@@ -10,8 +13,8 @@ namespace PCConfigurationTool.WinFormsPresentation
     {
         #region Declaration
 
-        IUnityContainer container;
-        IAddComponentViewModel addComponentViewModel;
+        private IUnityContainer container;
+        private IAddComponentViewModel addComponentViewModel;
 
         #endregion
 
@@ -30,7 +33,7 @@ namespace PCConfigurationTool.WinFormsPresentation
         public IAddComponentViewModel AddComponentViewModel
         {
             get
-            {                
+            {
                 return addComponentViewModel;
             }
         }
@@ -54,11 +57,46 @@ namespace PCConfigurationTool.WinFormsPresentation
             }
         }
 
+        private void btnAddPicture_Click(object sender, EventArgs e)
+        {
+            OpenFileDialog fileDialog = new OpenFileDialog();
+            fileDialog.Title = "Browse Component Images";
+            fileDialog.DefaultExt = "img";
+            fileDialog.Filter = "Images (*.BMP;*.JPG;*.GIF,*.PNG,*.TIFF)|*.BMP;*.JPG;*.GIF;*.PNG;*.TIFF|All files (*.*)|*.*";
+            fileDialog.CheckFileExists = true;
+            fileDialog.CheckPathExists = true;
+
+            DialogResult dr = fileDialog.ShowDialog();
+            if (dr == DialogResult.OK)
+            {
+                btnAddPicture.Visible = false;
+                picComponentPicture.Visible = true;
+
+                try
+                {
+                    Image.GetThumbnailImageAbort myCallback = new Image.GetThumbnailImageAbort(ThumbnailCallback);
+                    Bitmap myBitmap = new Bitmap(fileDialog.FileName);
+                    Image myThumbnail = myBitmap.GetThumbnailImage(100, 85, myCallback, IntPtr.Zero);
+                    picComponentPicture.Image = myThumbnail;
+                }
+                catch
+                {
+                    btnAddPicture.Visible = true;
+                    picComponentPicture.Visible = false;
+                }
+            }
+        }
+
+        public bool ThumbnailCallback()
+        {
+            return false;
+        }
+
         private void btnAddComponent_Click(object sender, System.EventArgs e)
         {
             IAddComponentViewModel addComponentViewModel = container.Resolve<IAddComponentViewModel>();
             addComponentViewModel.Description = rtbxDescription.Text;
-            //addComponentViewModel.Image = 
+            addComponentViewModel.Image = ImageConverter.CopyImageToByteArray(picComponentPicture.Image);
             addComponentViewModel.Manufacturer = tbxManufacturer.Text;
             addComponentViewModel.Name = tbxName.Text;
 
@@ -74,7 +112,15 @@ namespace PCConfigurationTool.WinFormsPresentation
             addComponentViewModel.Status = Core.Common.EntityStatus.Current;
 
             if (addComponentViewModel.Save())
+            {
+                ltvComponents.Items.Add(
+                               new ListViewItem(
+                                   new string[] { addComponentViewModel.Name
+                                                , addComponentViewModel.Description
+                                                , addComponentViewModel.Manufacturer
+                                                , addComponentViewModel.Price.ToString()}));
                 ClearForm();
+            }
         }
 
         private void ClearForm()
@@ -86,6 +132,20 @@ namespace PCConfigurationTool.WinFormsPresentation
             tbxPrice.Text = string.Empty;
         }
 
+        private void SetPCComponentElements()
+        {
+            rtbxDescription.Text = string.Empty;
+            tbxManufacturer.Text = string.Empty;
+            tbxManufacturer.Text = string.Empty;
+            tbxName.Text = string.Empty;
+            tbxPrice.Text = string.Empty;
+        }
+
         #endregion
+
+        private void ltvComponents_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

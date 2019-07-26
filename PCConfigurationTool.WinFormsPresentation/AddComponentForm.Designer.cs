@@ -28,15 +28,15 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.ListViewItem listViewItem3 = new System.Windows.Forms.ListViewItem(new string[] {
+            System.Windows.Forms.ListViewItem listViewItem1 = new System.Windows.Forms.ListViewItem(new string[] {
             ""}, -1, System.Drawing.Color.Empty, System.Drawing.Color.WhiteSmoke, null);
             this.btnAddComponent = new System.Windows.Forms.Button();
             this.ltvComponents = new System.Windows.Forms.ListView();
+            this.Image = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.Name = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.Description = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.Price = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.Image = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.Manufacturer = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.Price = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.picComponentPicture = new System.Windows.Forms.PictureBox();
             this.lblName = new System.Windows.Forms.Label();
             this.tbxName = new System.Windows.Forms.TextBox();
@@ -46,6 +46,7 @@
             this.rtbxDescription = new System.Windows.Forms.RichTextBox();
             this.lblComponentPrice = new System.Windows.Forms.Label();
             this.tbxPrice = new System.Windows.Forms.TextBox();
+            this.btnAddPicture = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.picComponentPicture)).BeginInit();
             this.SuspendLayout();
             // 
@@ -74,7 +75,7 @@
             this.Manufacturer,
             this.Price});
             this.ltvComponents.Items.AddRange(new System.Windows.Forms.ListViewItem[] {
-            listViewItem3});
+            listViewItem1});
             this.ltvComponents.Location = new System.Drawing.Point(39, 22);
             this.ltvComponents.Margin = new System.Windows.Forms.Padding(10);
             this.ltvComponents.MinimumSize = new System.Drawing.Size(200, 100);
@@ -82,27 +83,29 @@
             this.ltvComponents.Size = new System.Drawing.Size(714, 219);
             this.ltvComponents.TabIndex = 1;
             this.ltvComponents.UseCompatibleStateImageBehavior = false;
-            // 
-            // Name
-            // 
-            this.Name.DisplayIndex = 0;
-            // 
-            // Description
-            // 
-            this.Description.DisplayIndex = 1;
-            // 
-            // Price
-            // 
-            this.Price.DisplayIndex = 2;
-            this.Price.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.ltvComponents.SelectedIndexChanged += new System.EventHandler(this.ltvComponents_SelectedIndexChanged);
             // 
             // Image
             // 
             this.Image.DisplayIndex = 3;
             // 
+            // Name
+            // 
+            this.Name.DisplayIndex = 0;
+            this.Name.Text = "AddComponentForm";
+            // 
+            // Description
+            // 
+            this.Description.DisplayIndex = 1;
+            // 
             // Manufacturer
             // 
             this.Manufacturer.DisplayIndex = 4;
+            // 
+            // Price
+            // 
+            this.Price.DisplayIndex = 2;
+            this.Price.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
             // picComponentPicture
             // 
@@ -111,6 +114,7 @@
             this.picComponentPicture.Size = new System.Drawing.Size(100, 85);
             this.picComponentPicture.TabIndex = 2;
             this.picComponentPicture.TabStop = false;
+            this.picComponentPicture.Visible = false;
             // 
             // lblName
             // 
@@ -180,6 +184,16 @@
             this.tbxPrice.TabIndex = 10;
             this.tbxPrice.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtNumericDecimal_KeyPress);
             // 
+            // btnAddPicture
+            // 
+            this.btnAddPicture.Location = new System.Drawing.Point(39, 272);
+            this.btnAddPicture.Name = "btnAddPicture";
+            this.btnAddPicture.Size = new System.Drawing.Size(100, 85);
+            this.btnAddPicture.TabIndex = 11;
+            this.btnAddPicture.Text = "Add Component Image";
+            this.btnAddPicture.UseVisualStyleBackColor = true;
+            this.btnAddPicture.Click += new System.EventHandler(this.btnAddPicture_Click);
+            // 
             // AddComponentForm
             // 
             this.AccessibleName = "ltvExistingComponents";
@@ -187,6 +201,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
             this.ClientSize = new System.Drawing.Size(800, 461);
+            this.Controls.Add(this.btnAddPicture);
             this.Controls.Add(this.tbxPrice);
             this.Controls.Add(this.lblComponentPrice);
             this.Controls.Add(this.rtbxDescription);
@@ -198,9 +213,13 @@
             this.Controls.Add(this.picComponentPicture);
             this.Controls.Add(this.ltvComponents);
             this.Controls.Add(this.btnAddComponent);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.MaximizeBox = false;
             this.MinimumSize = new System.Drawing.Size(810, 500);
             this.Name.Text = "AddComponentForm";
             this.Padding = new System.Windows.Forms.Padding(5);
+            this.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Hide;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "AddComponentForm";
             ((System.ComponentModel.ISupportInitialize)(this.picComponentPicture)).EndInit();
             this.ResumeLayout(false);
@@ -226,5 +245,6 @@
         private System.Windows.Forms.RichTextBox rtbxDescription;
         private System.Windows.Forms.Label lblComponentPrice;
         private System.Windows.Forms.TextBox tbxPrice;
+        private System.Windows.Forms.Button btnAddPicture;
     }
 }
