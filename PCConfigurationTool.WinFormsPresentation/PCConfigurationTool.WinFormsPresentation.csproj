@@ -90,6 +90,9 @@
     <EmbeddedResource Include="Views\AddComponentForm.resx">
       <DependentUpon>AddComponentForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Views\ConfigurePCForm.resx">
+      <DependentUpon>ConfigurePCForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Views\EntryForm.resx">
       <DependentUpon>EntryForm.cs</DependentUpon>
     </EmbeddedResource>
