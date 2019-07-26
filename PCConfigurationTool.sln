@@ -9,6 +9,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PCConfigurationTool.Core", 
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PCConfigurationTool.Database", "PCConfigurationTool.Database\PCConfigurationTool.Database.csproj", "{012EFE46-9691-4B10-A00E-96470CB86AEB}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PCConfigurationTool.WinFormsPresentation", "PCConfigurationTool.WinFormsPresentation\PCConfigurationTool.WinFormsPresentation.csproj", "{D407638C-93DC-4E19-BAC4-5EC45BAC46E7}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PCConfigurationTool.BusinessLayer", "PCConfigurationTool.BusinessLayer\PCConfigurationTool.BusinessLayer.csproj", "{7681047C-56D4-448F-890A-B6A836607226}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +31,14 @@ Global
 		{012EFE46-9691-4B10-A00E-96470CB86AEB}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{012EFE46-9691-4B10-A00E-96470CB86AEB}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{012EFE46-9691-4B10-A00E-96470CB86AEB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D407638C-93DC-4E19-BAC4-5EC45BAC46E7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D407638C-93DC-4E19-BAC4-5EC45BAC46E7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D407638C-93DC-4E19-BAC4-5EC45BAC46E7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D407638C-93DC-4E19-BAC4-5EC45BAC46E7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7681047C-56D4-448F-890A-B6A836607226}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7681047C-56D4-448F-890A-B6A836607226}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7681047C-56D4-448F-890A-B6A836607226}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7681047C-56D4-448F-890A-B6A836607226}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
