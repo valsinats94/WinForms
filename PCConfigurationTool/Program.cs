@@ -25,8 +25,8 @@ namespace PCConfigurationTool
 
             var a = container.Resolve<IDatabaseService>();
 
-            container.Resolve<IFormManager>().ShowModalForm<Form1>();
-            Application.Run();            
+            Application.Run();
+            container.Resolve<IFormManager>().ShowModalForm<Form1>();                       
         }
     }
 }

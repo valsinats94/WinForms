@@ -69,15 +69,19 @@
   <ItemGroup>
     <Compile Include="Bootstrapper.cs" />
     <Compile Include="FormManager.cs" />
-    <Compile Include="Interfaces\IDatabaseService.cs" />
-    <Compile Include="Interfaces\IFormManager.cs" />
-    <Compile Include="Interfaces\IModule.cs" />
+    <Compile Include="Interfaces\Basis\IView.cs" />
+    <Compile Include="Interfaces\Services\IDatabaseService.cs" />
+    <Compile Include="Interfaces\Basis\IFormManager.cs" />
+    <Compile Include="Interfaces\Basis\IModule.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config">
       <SubType>Designer</SubType>
     </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Interfaces\Models\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
