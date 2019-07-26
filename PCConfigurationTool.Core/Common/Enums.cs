@@ -12,4 +12,11 @@ namespace PCConfigurationTool.Core.Common
         Edited,
         Current,
     }
+
+    public enum ErrorLevel
+    {
+        NoError = 0,
+        NonCritical = 1,
+        Critical = 2,
+    }
 }

@@ -1,5 +1,6 @@
 ﻿using PCConfigurationTool.Core;
 using PCConfigurationTool.Core.Interfaces;
+using PCConfigurationTool.Core.Interfaces.Views;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -25,8 +26,11 @@ namespace PCConfigurationTool
 
             var a = container.Resolve<IDatabaseService>();
 
-            Application.Run();
-            container.Resolve<IFormManager>().ShowModalForm<Form1>();                       
+            Form form = container.Resolve<IAddComponentView>() as Form;
+
+            //container.Resolve<IFormManager>().ShowModalForm<form>();
+
+            Application.Run(form);
         }
     }
 }

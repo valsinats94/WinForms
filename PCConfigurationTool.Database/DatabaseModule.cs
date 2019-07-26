@@ -7,7 +7,7 @@ using Unity;
 
 namespace PCConfigurationTool.Database
 {
-    [Export(typeof(IModule))]
+    //[Export(typeof(IModule))]
     public class DatabaseModule : IModule
     {
         IUnityContainer container;
@@ -15,6 +15,7 @@ namespace PCConfigurationTool.Database
         public DatabaseModule(IUnityContainer container)
         {
             this.container = container;
+
             RegisterServices();
             RegisterModels();
         }

@@ -69,6 +69,7 @@
   <ItemGroup>
     <Compile Include="Bootstrapper.cs" />
     <Compile Include="Common\Enums.cs" />
+    <Compile Include="Common\ValidationResult.cs" />
     <Compile Include="FormManager.cs" />
     <Compile Include="Interfaces\Basis\IView.cs" />
     <Compile Include="Interfaces\Models\IPCComponent.cs" />
@@ -76,6 +77,7 @@
     <Compile Include="Interfaces\Basis\IFormManager.cs" />
     <Compile Include="Interfaces\Basis\IModule.cs" />
     <Compile Include="Interfaces\ViewModels\IAddComponentViewModel.cs" />
+    <Compile Include="Interfaces\Views\IAddComponentView.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
