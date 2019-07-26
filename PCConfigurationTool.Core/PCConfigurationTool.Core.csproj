@@ -81,6 +81,8 @@
     <Compile Include="Interfaces\Services\IPCComponentDatabaseService.cs" />
     <Compile Include="Interfaces\ViewModels\IAddComponentViewModel.cs" />
     <Compile Include="Interfaces\Views\IAddComponentView.cs" />
+    <Compile Include="Interfaces\Views\IConfigurePCView.cs" />
+    <Compile Include="Interfaces\Views\IEntryView.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

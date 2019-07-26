@@ -11,9 +11,9 @@ using System.Windows.Forms;
 
 namespace PCConfigurationTool.WinFormsPresentation
 {
-    public partial class ConfigurePCForm : Form, IConfigurePCView
+    public partial class EntryForm : Form, IEntryView
     {
-        public ConfigurePCForm()
+        public EntryForm()
         {
             InitializeComponent();
         }
