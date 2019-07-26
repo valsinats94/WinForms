@@ -115,10 +115,11 @@ namespace PCConfigurationTool.WinFormsPresentation
             {
                 ltvComponents.Items.Add(
                                new ListViewItem(
-                                   new string[] { addComponentViewModel.Name
+                                          new[] { addComponentViewModel.Name
                                                 , addComponentViewModel.Description
                                                 , addComponentViewModel.Manufacturer
-                                                , addComponentViewModel.Price.ToString()}));
+                                                , addComponentViewModel.Price.ToString()})
+                               { Tag = addComponentViewModel});
                 ClearForm();
             }
         }

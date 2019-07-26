@@ -10,6 +10,9 @@ namespace PCConfigurationTool.Core.Common.Helpers
 
         public static byte[] CopyImageToByteArray(Image theImage)
         {
+            if (theImage == null)
+                return null;
+
             using (MemoryStream memoryStream = new MemoryStream())
             {
                 theImage.Save(memoryStream, ImageFormat.Png);
@@ -19,6 +22,9 @@ namespace PCConfigurationTool.Core.Common.Helpers
 
         public static Image GetImageFromByteArray(byte[] byteArray)
         {
+            if (byteArray == null)
+                return null;
+
             using (var ms = new MemoryStream(byteArray))
             {
                 return Image.FromStream(ms);

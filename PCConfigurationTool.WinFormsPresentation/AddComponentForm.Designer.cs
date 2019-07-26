@@ -1,4 +1,6 @@
-﻿namespace PCConfigurationTool.WinFormsPresentation
+﻿using System.Windows.Forms;
+
+namespace PCConfigurationTool.WinFormsPresentation
 {
     partial class AddComponentForm
     {
@@ -28,11 +30,8 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.ListViewItem listViewItem1 = new System.Windows.Forms.ListViewItem(new string[] {
-            ""}, -1, System.Drawing.Color.Empty, System.Drawing.Color.WhiteSmoke, null);
             this.btnAddComponent = new System.Windows.Forms.Button();
             this.ltvComponents = new System.Windows.Forms.ListView();
-            this.Image = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.Name = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.Description = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.Manufacturer = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
@@ -68,39 +67,23 @@
             // 
             // ltvComponents
             // 
-            this.ltvComponents.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
-            this.Image,
-            this.Name,
-            this.Description,
-            this.Manufacturer,
-            this.Price});
-            this.ltvComponents.Items.AddRange(new System.Windows.Forms.ListViewItem[] {
-            listViewItem1});
-            this.ltvComponents.Location = new System.Drawing.Point(39, 22);
+            this.ltvComponents.Location = new System.Drawing.Point(39, 15);
             this.ltvComponents.Margin = new System.Windows.Forms.Padding(10);
             this.ltvComponents.MinimumSize = new System.Drawing.Size(200, 100);
             this.ltvComponents.Name = "ltvComponents";
             this.ltvComponents.Size = new System.Drawing.Size(714, 219);
             this.ltvComponents.TabIndex = 1;
             this.ltvComponents.UseCompatibleStateImageBehavior = false;
+            this.ltvComponents.View = System.Windows.Forms.View.Details;
             this.ltvComponents.SelectedIndexChanged += new System.EventHandler(this.ltvComponents_SelectedIndexChanged);
-            // 
-            // Image
-            // 
-            this.Image.DisplayIndex = 3;
             // 
             // Name
             // 
-            this.Name.DisplayIndex = 0;
             this.Name.Text = "AddComponentForm";
-            // 
-            // Description
-            // 
-            this.Description.DisplayIndex = 1;
             // 
             // Manufacturer
             // 
-            this.Manufacturer.DisplayIndex = 4;
+            this.Manufacturer.DisplayIndex = 3;
             // 
             // Price
             // 
@@ -216,7 +199,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.MaximizeBox = false;
             this.MinimumSize = new System.Drawing.Size(810, 500);
-            this.Name.Text = "AddComponentForm";
+            this.Name = "AddComponentForm";
             this.Padding = new System.Windows.Forms.Padding(5);
             this.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Hide;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
@@ -231,7 +214,6 @@
 
         private System.Windows.Forms.Button btnAddComponent;
         private System.Windows.Forms.ListView ltvComponents;
-        private System.Windows.Forms.ColumnHeader Image;
         private System.Windows.Forms.ColumnHeader Name;
         private System.Windows.Forms.ColumnHeader Description;
         private System.Windows.Forms.ColumnHeader Manufacturer;
