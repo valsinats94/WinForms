@@ -25,6 +25,7 @@ namespace PCConfigurationTool.Database
         {
             container.RegisterType<IDatabaseService, DatabaseService>();
             container.RegisterType<IPCComponentDatabaseService, PCComponentDatabaseService>();
+            container.RegisterType<IPCConfigurationDatabaseService, PCConfigurationDatabaseService>();
         }
 
         private void RegisterModels()

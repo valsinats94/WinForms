@@ -12,5 +12,7 @@ namespace PCConfigurationTool.Core.Interfaces.Services
         void Add(IPCComponent component);
 
         void Delete(IPCComponent component);
+
+        IEnumerable<IPCComponent> GetCurrentPCComponents();
     }
 }

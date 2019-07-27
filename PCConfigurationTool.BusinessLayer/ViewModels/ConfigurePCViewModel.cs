@@ -1,17 +1,26 @@
 ﻿using PCConfigurationTool.Core.Common;
 using PCConfigurationTool.Core.Interfaces.Models;
+using PCConfigurationTool.Core.Interfaces.Services;
 using PCConfigurationTool.Core.Interfaces.ViewModels;
 using System.Collections.Generic;
+using Unity;
 
 namespace PCConfigurationTool.BusinessLayer.ViewModels
 {
     public class ConfigurePCViewModel : IConfigurePCViewModel
     {
         #region Declaration
-        
+
+        private IUnityContainer container;
+
         private ICollection<IPCComponent> pCComponents;
         private IPCComponent selectedComponent;
         private ICollection<IPCComponent> chosenPCComponents;
+
+        public ConfigurePCViewModel(IUnityContainer container)
+        {
+            this.container = container;
+        }
 
         #endregion
 
@@ -26,7 +35,7 @@ namespace PCConfigurationTool.BusinessLayer.ViewModels
             get
             {
                 if (pCComponents == null)
-                    pCComponents = new List<IPCComponent>();
+                    pCComponents = container.Resolve<IPCComponentDatabaseService>().GetCurrentPCComponents() as ICollection<IPCComponent>;
 
                 return pCComponents;
             }
