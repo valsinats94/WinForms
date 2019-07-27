@@ -85,6 +85,14 @@
     <Compile Include="Migrations\201907272001295_PCConfigurationInit.Designer.cs">
       <DependentUpon>201907272001295_PCConfigurationInit.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201907272142003_PCConfigurationStatus.cs" />
+    <Compile Include="Migrations\201907272142003_PCConfigurationStatus.Designer.cs">
+      <DependentUpon>201907272142003_PCConfigurationStatus.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201907272147520_PCConfigurationStatus1.cs" />
+    <Compile Include="Migrations\201907272147520_PCConfigurationStatus1.Designer.cs">
+      <DependentUpon>201907272147520_PCConfigurationStatus1.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\PCComponent.cs" />
     <Compile Include="Models\PCConfiguration.cs" />
@@ -111,6 +119,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201907272001295_PCConfigurationInit.resx">
       <DependentUpon>201907272001295_PCConfigurationInit.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201907272142003_PCConfigurationStatus.resx">
+      <DependentUpon>201907272142003_PCConfigurationStatus.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201907272147520_PCConfigurationStatus1.resx">
+      <DependentUpon>201907272147520_PCConfigurationStatus1.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

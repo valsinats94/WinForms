@@ -64,7 +64,7 @@ namespace PCConfigurationTool.Database.Models
 
         decimal IPCConfiguration.TotalPrice { get; set; }
 
-        EntityStatus IPCConfiguration.Status { get; set; }
+        public EntityStatus Status { get; set; }
 
         #endregion
     }
