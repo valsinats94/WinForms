@@ -23,5 +23,7 @@ namespace PCConfigurationTool.Core.Interfaces.Models
         byte[] Image { get; set; }
 
         EntityStatus Status { get; set; }
+
+        ICollection<IPCConfiguration> PCConfigurations { get; set; }
     }
 }

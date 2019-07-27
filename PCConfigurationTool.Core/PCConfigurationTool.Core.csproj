@@ -75,6 +75,7 @@
     <Compile Include="FormManager.cs" />
     <Compile Include="Interfaces\Basis\IView.cs" />
     <Compile Include="Interfaces\Models\IPCComponent.cs" />
+    <Compile Include="Interfaces\Models\IPCConfiguration.cs" />
     <Compile Include="Interfaces\Services\IDatabaseService.cs" />
     <Compile Include="Interfaces\Basis\IFormManager.cs" />
     <Compile Include="Interfaces\Basis\IModule.cs" />

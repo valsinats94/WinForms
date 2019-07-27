@@ -25,6 +25,17 @@ namespace PCConfigurationTool.Database
 
             builder.Entity<PCComponent>()
                 .HasKey(pcc => pcc.ID);
+
+            builder.Entity<PCConfiguration>()
+                .HasKey(pccon => pccon.ID)
+                .HasMany(pccon => pccon.PCComponents)
+                .WithMany(comp => comp.PCConfigurations)
+                .Map(concomp =>
+                {
+                    concomp.MapLeftKey("PCConfigurationRefID");
+                    concomp.MapRightKey("PCComponentRefID");
+                    concomp.ToTable("PCConfigurationComponent");
+                });
         }
     }
 }
