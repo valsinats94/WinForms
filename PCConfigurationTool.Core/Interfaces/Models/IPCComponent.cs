@@ -9,9 +9,6 @@ namespace PCConfigurationTool.Core.Interfaces.Models
 {
     public interface IPCComponent
     {
-        /// <summary>
-        /// 
-        /// </summary>
         string Name { get; set; }
 
         string Manufacturer { get; set; }

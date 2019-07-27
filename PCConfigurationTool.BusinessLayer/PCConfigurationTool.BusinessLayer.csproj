@@ -50,6 +50,7 @@
     <Compile Include="BusinessLayerModule.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ViewModels\AddComponentViewModel.cs" />
+    <Compile Include="ViewModels\ConfigurePCViewModel.cs" />
     <Compile Include="ViewModels\ExtraordinaryPCConfiguration.cs" />
     <Compile Include="ViewModels\PCConfigurationViewModel.cs" />
     <Compile Include="ViewModels\PCConfigurationBaseViewModel.cs" />

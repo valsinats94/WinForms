@@ -1,4 +1,5 @@
-﻿using PCConfigurationTool.Core.Interfaces.Models;
+﻿using PCConfigurationTool.Core.Common;
+using PCConfigurationTool.Core.Interfaces.Models;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
@@ -60,6 +61,10 @@ namespace PCConfigurationTool.Database.Models
                 pcComponents = value;
             }
         }
+
+        decimal IPCConfiguration.TotalPrice { get; set; }
+
+        EntityStatus IPCConfiguration.Status { get; set; }
 
         #endregion
     }

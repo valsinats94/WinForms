@@ -19,4 +19,10 @@ namespace PCConfigurationTool.Core.Common
         NonCritical = 1,
         Critical = 2,
     }
+
+    public enum ConfigurationType
+    {
+        Ordinary = 1 << 0,
+        ExtraOrdinary = 1 << 1,
+    }
 }

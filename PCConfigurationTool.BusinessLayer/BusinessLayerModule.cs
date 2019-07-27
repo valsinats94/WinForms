@@ -21,6 +21,7 @@ namespace PCConfigurationTool.BusinessLayer
         private void RegisterViewModels()
         {
             container.RegisterType<IAddComponentViewModel, AddComponentViewModel>();
+            container.RegisterType<IConfigurePCViewModel, ConfigurePCViewModel>();
         }
 
         public void RegisterServices()
