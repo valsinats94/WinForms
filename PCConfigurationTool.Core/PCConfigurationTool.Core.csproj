@@ -94,6 +94,7 @@
     </None>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Resources\arduino-vector-ico-6.ico" />
     <Content Include="Resources\arduino-vector-ico-6.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

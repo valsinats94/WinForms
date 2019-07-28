@@ -30,6 +30,7 @@ namespace PCConfigurationTool.WinFormsPresentation
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AddComponentForm));
             this.btnAddComponent = new System.Windows.Forms.Button();
             this.ltvComponents = new System.Windows.Forms.ListView();
             this.Name = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
@@ -213,12 +214,13 @@ namespace PCConfigurationTool.WinFormsPresentation
             this.Controls.Add(this.ltvComponents);
             this.Controls.Add(this.btnAddComponent);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.MinimumSize = new System.Drawing.Size(810, 500);
             this.Padding = new System.Windows.Forms.Padding(5);
             this.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Hide;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "AddComponentForm";
+            this.Text = "Add Component";
             ((System.ComponentModel.ISupportInitialize)(this.picComponentPicture)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

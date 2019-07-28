@@ -30,6 +30,7 @@ namespace PCConfigurationTool.WinFormsPresentation
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ConfigurePCForm));
             this.cbPCComponents = new System.Windows.Forms.ComboBox();
             this.lsAddedComponents = new System.Windows.Forms.ListView();
             this.lblTotalPriceLabel = new System.Windows.Forms.Label();
@@ -243,6 +244,7 @@ namespace PCConfigurationTool.WinFormsPresentation
             this.Controls.Add(this.lblTotalPriceLabel);
             this.Controls.Add(this.lsAddedComponents);
             this.Controls.Add(this.cbPCComponents);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "ConfigurePCForm";

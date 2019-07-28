@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(EntryForm));
             this.btnCreateConfiguration = new System.Windows.Forms.Button();
             this.btnAddComponent = new System.Windows.Forms.Button();
             this.btnLoadConfigurations = new System.Windows.Forms.Button();
@@ -84,6 +85,7 @@
             this.Controls.Add(this.btnAddComponent);
             this.Controls.Add(this.btnCreateConfiguration);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.Name = "EntryForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
