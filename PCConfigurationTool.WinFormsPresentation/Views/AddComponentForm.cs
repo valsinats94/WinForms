@@ -121,6 +121,11 @@ namespace PCConfigurationTool.WinFormsPresentation
             tbxManufacturer.Text = string.Empty;
             tbxName.Text = string.Empty;
             tbxPrice.Text = string.Empty;
+            tbxCode.Text = string.Empty;
+
+            picComponentPicture.Image = null;
+            picComponentPicture.Visible = false;
+            btnAddPicture.Visible = true;
         }
 
         private void SetPCComponentElements()

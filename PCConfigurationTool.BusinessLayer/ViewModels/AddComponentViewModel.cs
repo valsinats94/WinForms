@@ -42,7 +42,7 @@ namespace PCConfigurationTool.BusinessLayer.ViewModels
                 if (value == code)
                     return;
 
-                if (CodeExistsValidation(value) != ValidationResult.NoError)
+                if (CodeExistsValidation(value).ErrorLevel != ErrorLevel.NoError)
                     return;
 
                 code = value;
@@ -79,7 +79,7 @@ namespace PCConfigurationTool.BusinessLayer.ViewModels
             IList<ValidationResult> result = new List<ValidationResult>();
 
             ValidationResult validationResult = CodeExistsValidation(Code);
-            if (validationResult != ValidationResult.NoError)
+            if (validationResult.ErrorLevel != ErrorLevel.NoError)
                 result.Add(validationResult);
             
             return new List<ValidationResult>();
