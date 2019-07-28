@@ -2,6 +2,7 @@
 using PCConfigurationTool.Core.Interfaces.Models;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 
 namespace PCConfigurationTool.Database.Models
@@ -18,7 +19,7 @@ namespace PCConfigurationTool.Database.Models
 
         public PCConfiguration()
         {
-            PCComponents = new HashSet<PCComponent>();
+            PCComponentsDAO = new HashSet<PCComponent>();
         }
 
         #endregion
@@ -30,7 +31,7 @@ namespace PCConfigurationTool.Database.Models
 
         public decimal TotalPrice { get; set; }
 
-        public ICollection<PCComponent> PCComponents
+        public ICollection<PCComponent> PCComponentsDAO
         {
             get
             {
@@ -46,7 +47,8 @@ namespace PCConfigurationTool.Database.Models
                 pcComponents = value.Select(x => (IPCComponent)x).ToList();
             }
         }
-        
+
+        [NotMapped]
         ICollection<IPCComponent> IPCConfiguration.PCComponents
         {
             get

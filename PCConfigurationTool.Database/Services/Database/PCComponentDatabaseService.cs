@@ -48,5 +48,13 @@ namespace PCConfigurationTool.Database.Services.Database
                 return resultComponent?.Image;
             }
         }
+
+        public bool CheckForExistingCode(string code)
+        {
+            using (PCConfigurationContext context = new PCConfigurationContext())
+            {
+                return context.PCComponents.Any(pc => pc.Code.Equals(code, System.StringComparison.OrdinalIgnoreCase));
+            }
+        }
     }
 }

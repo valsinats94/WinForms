@@ -37,13 +37,13 @@ namespace PCConfigurationTool.BusinessLayer.ViewModels
             {
                 if (pCComponents == null)
                 {
-                    pCComponents = InitializeComponents(); 
+                    pCComponents = InitializeComponents();
                 }
 
                 return pCComponents;
             }
         }
-        
+
         public ICollection<IPCComponent> ChosenPCComponents
         {
             get
@@ -105,7 +105,7 @@ namespace PCConfigurationTool.BusinessLayer.ViewModels
         {
             PCConfigurationBaseViewModel pCConfigurationViewModel = new PCConfigurationViewModel();
             pCConfigurationViewModel.PCComponents = ChosenPCComponents.ToList();
-            
+
             if ((ConfigurationType & ConfigurationType.ExtraOrdinary) == ConfigurationType.ExtraOrdinary)
             {
                 pCConfigurationViewModel = new ExtraordinaryPCConfiguration(pCConfigurationViewModel, Coefficient ?? 0);
@@ -129,8 +129,10 @@ namespace PCConfigurationTool.BusinessLayer.ViewModels
             if (Validate().Count > 0)
                 return false;
 
+            IPCConfigurationDatabaseService dbService = container.Resolve<IPCConfigurationDatabaseService>();
+
             IPCConfiguration pcConfiguration = container.Resolve<IPCConfiguration>();
-            pcConfiguration.PCComponents = ChosenPCComponents.ToList();
+            pcConfiguration.PCComponents = AddComponents(dbService, pcConfiguration);
             pcConfiguration.TotalPrice = TotalPrice;
             pcConfiguration.ConfigurationType = ConfigurationType;
             pcConfiguration.Status = Status;
@@ -138,6 +140,21 @@ namespace PCConfigurationTool.BusinessLayer.ViewModels
             container.Resolve<IPCConfigurationDatabaseService>().Add(pcConfiguration);
 
             return true;
+        }
+
+        private ICollection<IPCComponent> AddComponents(IPCConfigurationDatabaseService dbService, IPCConfiguration pcConfiguration)
+        {
+            ICollection<IPCComponent> result = new List<IPCComponent>();
+
+            foreach (IPCComponent component in ChosenPCComponents)
+            {
+                IPCComponent tmpComponent = container.Resolve<IPCComponentDatabaseService>()
+                                                                            .GetCurrentPCComponents()
+                                                                            .FirstOrDefault(c => c.Code.Equals(component.Code, System.StringComparison.OrdinalIgnoreCase));
+                result.Add(tmpComponent);
+            }
+
+            return result;
         }
 
         #endregion

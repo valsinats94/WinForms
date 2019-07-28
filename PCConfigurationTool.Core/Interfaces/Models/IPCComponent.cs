@@ -11,6 +11,8 @@ namespace PCConfigurationTool.Core.Interfaces.Models
     {
         string Name { get; set; }
 
+        string Code { get; set; }
+
         string Manufacturer { get; set; }
 
         string Description { get; set; }

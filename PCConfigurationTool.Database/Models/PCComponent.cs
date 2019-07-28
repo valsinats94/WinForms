@@ -2,6 +2,7 @@
 using PCConfigurationTool.Core.Interfaces.Models;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 
 namespace PCConfigurationTool.Database.Models
@@ -18,7 +19,7 @@ namespace PCConfigurationTool.Database.Models
         
         public PCComponent()
         {
-            PCConfigurations = new HashSet<PCConfiguration>();
+            PCConfigurationsDAO = new HashSet<PCConfiguration>();
         }
 
         #endregion
@@ -30,6 +31,9 @@ namespace PCConfigurationTool.Database.Models
 
         [Required]
         public string Name { get; set; }
+
+        [Required]
+        public string Code { get; set; }
 
         public string Manufacturer { get; set; }
 
@@ -43,7 +47,7 @@ namespace PCConfigurationTool.Database.Models
 
         public byte[] Image { get; set; }
 
-        public ICollection<PCConfiguration> PCConfigurations
+        public ICollection<PCConfiguration> PCConfigurationsDAO
         {
             get
             {
@@ -60,6 +64,7 @@ namespace PCConfigurationTool.Database.Models
             }
         }
 
+        [NotMapped]
         ICollection<IPCConfiguration> IPCComponent.PCConfigurations
         {
             get

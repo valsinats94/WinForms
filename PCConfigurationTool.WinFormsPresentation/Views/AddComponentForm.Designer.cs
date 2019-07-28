@@ -48,6 +48,8 @@ namespace PCConfigurationTool.WinFormsPresentation
             this.tbxPrice = new System.Windows.Forms.TextBox();
             this.btnAddPicture = new System.Windows.Forms.Button();
             this.btnCancel = new System.Windows.Forms.Button();
+            this.tbxCode = new System.Windows.Forms.TextBox();
+            this.lblCode = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.picComponentPicture)).BeginInit();
             this.SuspendLayout();
             // 
@@ -78,10 +80,6 @@ namespace PCConfigurationTool.WinFormsPresentation
             this.ltvComponents.UseCompatibleStateImageBehavior = false;
             this.ltvComponents.View = System.Windows.Forms.View.Details;
             this.ltvComponents.SelectedIndexChanged += new System.EventHandler(this.ltvComponents_SelectedIndexChanged);
-            this.ltvComponents.Columns.Add("Name", 155);
-            this.ltvComponents.Columns.Add("Manufacturer", 190);
-            this.ltvComponents.Columns.Add("Description", 295);
-            this.ltvComponents.Columns.Add("Price", -2, HorizontalAlignment.Right);
             // 
             // Name
             // 
@@ -98,7 +96,7 @@ namespace PCConfigurationTool.WinFormsPresentation
             // 
             // picComponentPicture
             // 
-            this.picComponentPicture.Location = new System.Drawing.Point(39, 272);
+            this.picComponentPicture.Location = new System.Drawing.Point(39, 253);
             this.picComponentPicture.Name = "picComponentPicture";
             this.picComponentPicture.Size = new System.Drawing.Size(100, 85);
             this.picComponentPicture.TabIndex = 2;
@@ -108,7 +106,7 @@ namespace PCConfigurationTool.WinFormsPresentation
             // lblName
             // 
             this.lblName.AutoSize = true;
-            this.lblName.Location = new System.Drawing.Point(178, 272);
+            this.lblName.Location = new System.Drawing.Point(178, 253);
             this.lblName.Name = "lblName";
             this.lblName.Size = new System.Drawing.Size(92, 13);
             this.lblName.TabIndex = 3;
@@ -117,7 +115,7 @@ namespace PCConfigurationTool.WinFormsPresentation
             // tbxName
             // 
             this.tbxName.AccessibleName = "tbxName";
-            this.tbxName.Location = new System.Drawing.Point(311, 272);
+            this.tbxName.Location = new System.Drawing.Point(311, 253);
             this.tbxName.Name = "tbxName";
             this.tbxName.Size = new System.Drawing.Size(160, 20);
             this.tbxName.TabIndex = 4;
@@ -125,7 +123,7 @@ namespace PCConfigurationTool.WinFormsPresentation
             // lblComponentManufacturer
             // 
             this.lblComponentManufacturer.AutoSize = true;
-            this.lblComponentManufacturer.Location = new System.Drawing.Point(178, 312);
+            this.lblComponentManufacturer.Location = new System.Drawing.Point(178, 293);
             this.lblComponentManufacturer.Name = "lblComponentManufacturer";
             this.lblComponentManufacturer.Size = new System.Drawing.Size(127, 13);
             this.lblComponentManufacturer.TabIndex = 5;
@@ -133,7 +131,7 @@ namespace PCConfigurationTool.WinFormsPresentation
             // 
             // tbxManufacturer
             // 
-            this.tbxManufacturer.Location = new System.Drawing.Point(311, 305);
+            this.tbxManufacturer.Location = new System.Drawing.Point(311, 286);
             this.tbxManufacturer.Name = "tbxManufacturer";
             this.tbxManufacturer.Size = new System.Drawing.Size(160, 20);
             this.tbxManufacturer.TabIndex = 6;
@@ -141,7 +139,7 @@ namespace PCConfigurationTool.WinFormsPresentation
             // lblComponentDescription
             // 
             this.lblComponentDescription.AutoSize = true;
-            this.lblComponentDescription.Location = new System.Drawing.Point(506, 272);
+            this.lblComponentDescription.Location = new System.Drawing.Point(506, 253);
             this.lblComponentDescription.Name = "lblComponentDescription";
             this.lblComponentDescription.Size = new System.Drawing.Size(117, 13);
             this.lblComponentDescription.TabIndex = 7;
@@ -149,16 +147,16 @@ namespace PCConfigurationTool.WinFormsPresentation
             // 
             // rtbxDescription
             // 
-            this.rtbxDescription.Location = new System.Drawing.Point(509, 289);
+            this.rtbxDescription.Location = new System.Drawing.Point(509, 270);
             this.rtbxDescription.Name = "rtbxDescription";
-            this.rtbxDescription.Size = new System.Drawing.Size(244, 68);
+            this.rtbxDescription.Size = new System.Drawing.Size(244, 99);
             this.rtbxDescription.TabIndex = 8;
             this.rtbxDescription.Text = "";
             // 
             // lblComponentPrice
             // 
             this.lblComponentPrice.AutoSize = true;
-            this.lblComponentPrice.Location = new System.Drawing.Point(178, 344);
+            this.lblComponentPrice.Location = new System.Drawing.Point(178, 325);
             this.lblComponentPrice.Name = "lblComponentPrice";
             this.lblComponentPrice.Size = new System.Drawing.Size(88, 13);
             this.lblComponentPrice.TabIndex = 9;
@@ -167,7 +165,7 @@ namespace PCConfigurationTool.WinFormsPresentation
             // tbxPrice
             // 
             this.tbxPrice.ImeMode = System.Windows.Forms.ImeMode.Off;
-            this.tbxPrice.Location = new System.Drawing.Point(311, 336);
+            this.tbxPrice.Location = new System.Drawing.Point(311, 317);
             this.tbxPrice.Name = "tbxPrice";
             this.tbxPrice.Size = new System.Drawing.Size(160, 20);
             this.tbxPrice.TabIndex = 10;
@@ -175,7 +173,7 @@ namespace PCConfigurationTool.WinFormsPresentation
             // 
             // btnAddPicture
             // 
-            this.btnAddPicture.Location = new System.Drawing.Point(39, 272);
+            this.btnAddPicture.Location = new System.Drawing.Point(39, 253);
             this.btnAddPicture.Name = "btnAddPicture";
             this.btnAddPicture.Size = new System.Drawing.Size(100, 85);
             this.btnAddPicture.TabIndex = 11;
@@ -193,6 +191,23 @@ namespace PCConfigurationTool.WinFormsPresentation
             this.btnCancel.UseVisualStyleBackColor = true;
             this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
             // 
+            // tbxCode
+            // 
+            this.tbxCode.ImeMode = System.Windows.Forms.ImeMode.Off;
+            this.tbxCode.Location = new System.Drawing.Point(311, 349);
+            this.tbxCode.Name = "tbxCode";
+            this.tbxCode.Size = new System.Drawing.Size(160, 20);
+            this.tbxCode.TabIndex = 13;
+            // 
+            // lblCode
+            // 
+            this.lblCode.AutoSize = true;
+            this.lblCode.Location = new System.Drawing.Point(178, 356);
+            this.lblCode.Name = "lblCode";
+            this.lblCode.Size = new System.Drawing.Size(89, 13);
+            this.lblCode.TabIndex = 14;
+            this.lblCode.Text = "Component Code";
+            // 
             // AddComponentForm
             // 
             this.AccessibleName = "AddComponentForm";
@@ -200,6 +215,8 @@ namespace PCConfigurationTool.WinFormsPresentation
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
             this.ClientSize = new System.Drawing.Size(800, 461);
+            this.Controls.Add(this.lblCode);
+            this.Controls.Add(this.tbxCode);
             this.Controls.Add(this.btnCancel);
             this.Controls.Add(this.btnAddPicture);
             this.Controls.Add(this.tbxPrice);
@@ -246,5 +263,7 @@ namespace PCConfigurationTool.WinFormsPresentation
         private System.Windows.Forms.TextBox tbxPrice;
         private System.Windows.Forms.Button btnAddPicture;
         private Button btnCancel;
+        private TextBox tbxCode;
+        private Label lblCode;
     }
 }

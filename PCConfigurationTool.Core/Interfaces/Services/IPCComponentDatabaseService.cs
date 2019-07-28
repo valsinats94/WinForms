@@ -14,5 +14,7 @@ namespace PCConfigurationTool.Core.Interfaces.Services
         void Delete(IPCComponent component);
 
         IEnumerable<IPCComponent> GetCurrentPCComponents();
+
+        bool CheckForExistingCode(string code);
     }
 }

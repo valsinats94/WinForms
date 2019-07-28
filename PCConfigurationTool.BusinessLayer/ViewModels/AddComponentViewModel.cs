@@ -1,8 +1,8 @@
 ﻿using PCConfigurationTool.Core.Common;
-using PCConfigurationTool.Core.Interfaces;
 using PCConfigurationTool.Core.Interfaces.Models;
 using PCConfigurationTool.Core.Interfaces.Services;
 using PCConfigurationTool.Core.Interfaces.ViewModels;
+using System;
 using System.Collections.Generic;
 using Unity;
 
@@ -12,7 +12,9 @@ namespace PCConfigurationTool.BusinessLayer.ViewModels
     {
         #region Declarations
 
-        IUnityContainer container;
+        private IUnityContainer container;
+
+        private string code;
 
         #endregion
 
@@ -29,6 +31,24 @@ namespace PCConfigurationTool.BusinessLayer.ViewModels
 
         public string Name { get; set; }
 
+        public string Code
+        {
+            get
+            {
+                return code;
+            }
+            set
+            {
+                if (value == code)
+                    return;
+
+                if (CodeExistsValidation(value) != ValidationResult.NoError)
+                    return;
+
+                code = value;
+            }
+        }
+
         public string Manufacturer { get; set; }
 
         public string Description { get; set; }
@@ -43,14 +63,29 @@ namespace PCConfigurationTool.BusinessLayer.ViewModels
 
         #region Methods
 
+        private ValidationResult CodeExistsValidation(string value)
+        {
+            if (container.Resolve<IPCComponentDatabaseService>().CheckForExistingCode(value))
+                return new ValidationResult(ErrorLevel.Critical, "Already exists component with entered code");
+
+            return ValidationResult.NoError;
+        }
+
         public IList<ValidationResult> Validate()
         {
+            IList<ValidationResult> result = new List<ValidationResult>();
+
+            ValidationResult validationResult = CodeExistsValidation(Code);
+            if (validationResult != ValidationResult.NoError)
+                result.Add(validationResult);
+            
             return new List<ValidationResult>();
         }
 
         public bool Save()
         {
-            if (Validate().Count > 0)
+            IList<ValidationResult> validations = Validate();
+            if (validations.Count > 0)
             {
                 return false;
             }
@@ -59,6 +94,7 @@ namespace PCConfigurationTool.BusinessLayer.ViewModels
             pCComponent.Description = Description;
             pCComponent.Manufacturer = Manufacturer;
             pCComponent.Name = Name;
+            pCComponent.Code = Code;
             pCComponent.Price = Price;
             pCComponent.Image = Image;
             pCComponent.Status = Status;

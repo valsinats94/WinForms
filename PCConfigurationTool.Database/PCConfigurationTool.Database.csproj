@@ -97,6 +97,10 @@
     <Compile Include="Migrations\201907280030454_PCConfiguration_ConfigurationType.Designer.cs">
       <DependentUpon>201907280030454_PCConfiguration_ConfigurationType.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201907281230521_Component_Code.cs" />
+    <Compile Include="Migrations\201907281230521_Component_Code.Designer.cs">
+      <DependentUpon>201907281230521_Component_Code.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\PCComponent.cs" />
     <Compile Include="Models\PCConfiguration.cs" />
@@ -133,6 +137,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201907280030454_PCConfiguration_ConfigurationType.resx">
       <DependentUpon>201907280030454_PCConfiguration_ConfigurationType.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201907281230521_Component_Code.resx">
+      <DependentUpon>201907281230521_Component_Code.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

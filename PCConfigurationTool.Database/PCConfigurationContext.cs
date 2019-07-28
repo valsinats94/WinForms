@@ -30,8 +30,8 @@ namespace PCConfigurationTool.Database
 
             builder.Entity<PCConfiguration>()
                 .HasKey(pccon => pccon.ID)
-                .HasMany(pccon => pccon.PCComponents)
-                .WithMany(comp => comp.PCConfigurations)
+                .HasMany(pccon => pccon.PCComponentsDAO)
+                .WithMany(comp => comp.PCConfigurationsDAO)
                 .Map(concomp =>
                 {
                     concomp.MapLeftKey("PCConfigurationRefID");

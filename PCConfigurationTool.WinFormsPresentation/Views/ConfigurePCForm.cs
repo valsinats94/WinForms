@@ -6,6 +6,7 @@ using PCConfigurationTool.WinFormsPresentation.Views;
 using System;
 using System.Collections.Generic;
 using System.Drawing;
+using System.Linq;
 using System.Windows.Forms;
 using Unity;
 
@@ -116,6 +117,7 @@ namespace PCConfigurationTool.WinFormsPresentation
         private void btnSave_Click(object sender, EventArgs e)
         {
             configurePCViewModel.Save();
+            Dispose();
         }
 
         private void btnCancel_Click(object sender, EventArgs e)
@@ -177,7 +179,7 @@ namespace PCConfigurationTool.WinFormsPresentation
 
         private void InitializeComponentsToChooseForm()
         {
-            cbPCComponents.DataSource = PCComponents;
+            cbPCComponents.DataSource = PCComponents.OrderBy(cc => cc.Name).ToList();
             cbPCComponents.DisplayMember = "Name";
             cbPCComponents.SelectedValueChanged += SelectedComponentChangedEvent;
         }        
@@ -188,8 +190,8 @@ namespace PCConfigurationTool.WinFormsPresentation
             {
                 Image.GetThumbnailImageAbort myCallback = new Image.GetThumbnailImageAbort(ThumbnailCallback);
                 Bitmap myBitmap = new Bitmap(Core.Common.Helpers.ImageConverter.GetImageFromByteArray(selectedComponent.Image));
-                Image myThumbnail = myBitmap.GetThumbnailImage(102, 109, myCallback, IntPtr.Zero);
-                picComponentPicture.Image = myThumbnail;
+                //Image myThumbnail = myBitmap.GetThumbnailImage(102, 109, myCallback, IntPtr.Zero);
+                picComponentPicture.Image = myBitmap;
             }
 
             tbxManufacturer.Text = selectedComponent.Manufacturer;
