@@ -135,6 +135,8 @@ namespace PCConfigurationTool.BusinessLayer.ViewModels
             pcConfiguration.ConfigurationType = ConfigurationType;
             pcConfiguration.Status = Status;
 
+            container.Resolve<IPCConfigurationDatabaseService>().Add(pcConfiguration);
+
             return true;
         }
 

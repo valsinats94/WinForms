@@ -31,6 +31,7 @@ namespace PCConfigurationTool.Database
         private void RegisterModels()
         {
             container.RegisterType<IPCComponent, PCComponent>();
+            container.RegisterType<IPCConfiguration, PCConfiguration>();
         }
     }
 }

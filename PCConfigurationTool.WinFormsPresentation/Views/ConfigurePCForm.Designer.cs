@@ -90,6 +90,7 @@
             this.btnSave.TabIndex = 5;
             this.btnSave.Text = "Save";
             this.btnSave.UseVisualStyleBackColor = true;
+            this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
             // 
             // btnCancel
             // 
@@ -130,7 +131,7 @@
             // 
             // btnApply
             // 
-            this.btnApply.Location = new System.Drawing.Point(555, 362);
+            this.btnApply.Location = new System.Drawing.Point(557, 362);
             this.btnApply.Name = "btnApply";
             this.btnApply.Size = new System.Drawing.Size(231, 76);
             this.btnApply.TabIndex = 10;

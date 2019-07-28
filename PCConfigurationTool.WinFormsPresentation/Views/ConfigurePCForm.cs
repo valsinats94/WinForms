@@ -65,9 +65,11 @@ namespace PCConfigurationTool.WinFormsPresentation
         {
             btnApply.IsAccessible = true;
             btnApply.Enabled = true;
+            btnApply.Visible = true;
 
             btnSave.IsAccessible = false;
-            btnSave.Enabled = true;
+            btnSave.Enabled = false;
+            btnSave.Visible = false;
 
             btnAddComponent.Enabled = false;
             tbxCoefficient.Enabled = false;
@@ -138,7 +140,20 @@ namespace PCConfigurationTool.WinFormsPresentation
             if (!configurePCViewModel.ApplyChanges())
                 return;
 
+            btnApply.IsAccessible = false;
+            btnApply.Enabled = false;
+            btnApply.Visible = false;
+
+            btnSave.IsAccessible = false;
+            btnSave.Enabled = true;
+            btnSave.Visible = true;
+
             lblTotalPrice.Text = configurePCViewModel.TotalPrice.ToString();
+        }
+
+        private void btnSave_Click(object sender, EventArgs e)
+        {
+            configurePCViewModel.Save();
         }
     }
 }
