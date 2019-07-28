@@ -52,6 +52,8 @@ namespace PCConfigurationTool.WinFormsPresentation
             }
         }
 
+        public bool IsChangesApplied { get; set; }
+
         #endregion
 
         #region Methods
@@ -116,6 +118,16 @@ namespace PCConfigurationTool.WinFormsPresentation
                 return;               
 
             configurePCViewModel.AddComponentToConfiguration(configurePCViewModel.SelectedComponent);
+            AddComponentToChosenListViewItems(configurePCViewModel.SelectedComponent);
+        }
+
+        private void AddComponentToChosenListViewItems(IPCComponent selectedComponent)
+        {
+            ListViewItem lvi = new ListViewItem(selectedComponent.Name);        
+            lvi.SubItems.Add(selectedComponent.Manufacturer);
+            lvi.SubItems.Add(selectedComponent.Description);
+            lvi.SubItems.Add(selectedComponent.Price.ToString());
+            lsAddedComponents.Items.Add(lvi);
         }
 
         private void chbCoefficient_CheckedChanged(object sender, EventArgs e)
@@ -144,9 +156,11 @@ namespace PCConfigurationTool.WinFormsPresentation
             btnApply.Enabled = false;
             btnApply.Visible = false;
 
-            btnSave.IsAccessible = false;
+            btnSave.IsAccessible = true;
             btnSave.Enabled = true;
             btnSave.Visible = true;
+
+            IsChangesApplied = true;
 
             lblTotalPrice.Text = configurePCViewModel.TotalPrice.ToString();
         }
@@ -154,6 +168,26 @@ namespace PCConfigurationTool.WinFormsPresentation
         private void btnSave_Click(object sender, EventArgs e)
         {
             configurePCViewModel.Save();
+        }
+
+        private void btnCancel_Click(object sender, EventArgs e)
+        {
+            if (IsChangesApplied)
+            {
+                btnApply.IsAccessible = true;
+                btnApply.Enabled = true;
+                btnApply.Visible = true;
+
+                btnSave.IsAccessible = false;
+                btnSave.Enabled = false;
+                btnSave.Visible = false;
+
+                IsChangesApplied = false;
+            }
+            else
+            {
+                Dispose();
+            }
         }
     }
 }
