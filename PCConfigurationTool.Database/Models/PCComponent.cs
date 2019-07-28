@@ -19,7 +19,7 @@ namespace PCConfigurationTool.Database.Models
         
         public PCComponent()
         {
-            PCConfigurationsDAO = new HashSet<PCConfiguration>();
+            PCConfigurations = new List<PCConfiguration>();
         }
 
         #endregion
@@ -47,7 +47,7 @@ namespace PCConfigurationTool.Database.Models
 
         public byte[] Image { get; set; }
 
-        public ICollection<PCConfiguration> PCConfigurationsDAO
+        public List<PCConfiguration> PCConfigurations
         {
             get
             {
@@ -63,8 +63,7 @@ namespace PCConfigurationTool.Database.Models
                 pcConfigurations = value.Select(x => (IPCConfiguration)x).ToList();
             }
         }
-
-        [NotMapped]
+        
         ICollection<IPCConfiguration> IPCComponent.PCConfigurations
         {
             get

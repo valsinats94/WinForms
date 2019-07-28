@@ -1,11 +1,5 @@
 ﻿using PCConfigurationTool.Database.Models;
-using System;
-using System.Collections.Generic;
 using System.Data.Entity;
-using System.Data.Entity.ModelConfiguration.Conventions;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace PCConfigurationTool.Database
 {
@@ -15,6 +9,7 @@ namespace PCConfigurationTool.Database
         public PCConfigurationContext()
             :base("name=PCConfigurationConnectionString")
         {
+
         }
 
         public DbSet<PCComponent> PCComponents { get; set; }
@@ -30,8 +25,8 @@ namespace PCConfigurationTool.Database
 
             builder.Entity<PCConfiguration>()
                 .HasKey(pccon => pccon.ID)
-                .HasMany(pccon => pccon.PCComponentsDAO)
-                .WithMany(comp => comp.PCConfigurationsDAO)
+                .HasMany(pccon => pccon.PCComponents)
+                .WithMany(comp => comp.PCConfigurations)
                 .Map(concomp =>
                 {
                     concomp.MapLeftKey("PCConfigurationRefID");

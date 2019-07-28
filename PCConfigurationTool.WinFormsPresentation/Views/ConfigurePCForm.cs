@@ -197,6 +197,7 @@ namespace PCConfigurationTool.WinFormsPresentation
             tbxManufacturer.Text = selectedComponent.Manufacturer;
             tbxPrice.Text = selectedComponent.Price.ToString();
             rtbxDescription.Text = selectedComponent.Description;
+            tbxCode.Text = selectedComponent.Code;
         }
 
 

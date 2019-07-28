@@ -151,6 +151,7 @@ namespace PCConfigurationTool.BusinessLayer.ViewModels
                 IPCComponent tmpComponent = container.Resolve<IPCComponentDatabaseService>()
                                                                             .GetCurrentPCComponents()
                                                                             .FirstOrDefault(c => c.Code.Equals(component.Code, System.StringComparison.OrdinalIgnoreCase));
+                tmpComponent.PCConfigurations.Add(pcConfiguration);
                 result.Add(tmpComponent);
             }
 

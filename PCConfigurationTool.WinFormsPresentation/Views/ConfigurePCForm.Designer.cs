@@ -49,6 +49,8 @@ namespace PCConfigurationTool.WinFormsPresentation
             this.lblComponentManufacturer = new System.Windows.Forms.Label();
             this.picComponentPicture = new System.Windows.Forms.PictureBox();
             this.label1 = new System.Windows.Forms.Label();
+            this.tbxCode = new System.Windows.Forms.TextBox();
+            this.lblCode = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.picComponentPicture)).BeginInit();
             this.SuspendLayout();
             // 
@@ -162,7 +164,7 @@ namespace PCConfigurationTool.WinFormsPresentation
             // lblComponentPrice
             // 
             this.lblComponentPrice.AutoSize = true;
-            this.lblComponentPrice.Location = new System.Drawing.Point(396, 99);
+            this.lblComponentPrice.Location = new System.Drawing.Point(396, 108);
             this.lblComponentPrice.Name = "lblComponentPrice";
             this.lblComponentPrice.Size = new System.Drawing.Size(88, 13);
             this.lblComponentPrice.TabIndex = 19;
@@ -221,11 +223,31 @@ namespace PCConfigurationTool.WinFormsPresentation
             this.label1.TabIndex = 21;
             this.label1.Text = "Component Name";
             // 
+            // tbxCode
+            // 
+            this.tbxCode.ImeMode = System.Windows.Forms.ImeMode.Off;
+            this.tbxCode.Location = new System.Drawing.Point(396, 84);
+            this.tbxCode.Name = "tbxCode";
+            this.tbxCode.ReadOnly = true;
+            this.tbxCode.Size = new System.Drawing.Size(160, 20);
+            this.tbxCode.TabIndex = 23;
+            // 
+            // lblCode
+            // 
+            this.lblCode.AutoSize = true;
+            this.lblCode.Location = new System.Drawing.Point(396, 65);
+            this.lblCode.Name = "lblCode";
+            this.lblCode.Size = new System.Drawing.Size(89, 13);
+            this.lblCode.TabIndex = 22;
+            this.lblCode.Text = "Component Code";
+            // 
             // ConfigurePCForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.tbxCode);
+            this.Controls.Add(this.lblCode);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.tbxPrice);
             this.Controls.Add(this.lblComponentPrice);
@@ -275,5 +297,7 @@ namespace PCConfigurationTool.WinFormsPresentation
         private System.Windows.Forms.Label lblComponentManufacturer;
         private System.Windows.Forms.PictureBox picComponentPicture;
         private System.Windows.Forms.Label label1;
+        private TextBox tbxCode;
+        private Label lblCode;
     }
 }
