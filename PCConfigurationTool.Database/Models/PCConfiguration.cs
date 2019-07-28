@@ -58,9 +58,7 @@ namespace PCConfigurationTool.Database.Models
                 pcComponents = value;
             }
         }
-
-        decimal IPCConfiguration.TotalPrice { get; set; }
-
+        
         public ConfigurationType ConfigurationType { get; set; }
 
         public EntityStatus Status { get; set; }

@@ -63,19 +63,19 @@ namespace PCConfigurationTool.WinFormsPresentation
             // 
             this.lsAddedComponents.Location = new System.Drawing.Point(13, 162);
             this.lsAddedComponents.Name = "lsAddedComponents";
-            this.lsAddedComponents.Size = new System.Drawing.Size(775, 147);
+            this.lsAddedComponents.Size = new System.Drawing.Size(775, 159);
             this.lsAddedComponents.TabIndex = 2;
             this.lsAddedComponents.UseCompatibleStateImageBehavior = false;
             this.lsAddedComponents.View = System.Windows.Forms.View.Details;
-            this.lsAddedComponents.Columns.Add("Name",175);
-            this.lsAddedComponents.Columns.Add("Manufacturer",160);
-            this.lsAddedComponents.Columns.Add("Description",375);
+            this.lsAddedComponents.Columns.Add("Name", 175);
+            this.lsAddedComponents.Columns.Add("Manufacturer", 160);
+            this.lsAddedComponents.Columns.Add("Description", 375);
             this.lsAddedComponents.Columns.Add("Price", -2, HorizontalAlignment.Right);
             // 
             // lblTotalPriceLabel
             // 
             this.lblTotalPriceLabel.AutoSize = true;
-            this.lblTotalPriceLabel.Location = new System.Drawing.Point(640, 337);
+            this.lblTotalPriceLabel.Location = new System.Drawing.Point(640, 335);
             this.lblTotalPriceLabel.Name = "lblTotalPriceLabel";
             this.lblTotalPriceLabel.Size = new System.Drawing.Size(61, 13);
             this.lblTotalPriceLabel.TabIndex = 3;
@@ -84,10 +84,11 @@ namespace PCConfigurationTool.WinFormsPresentation
             // lblTotalPrice
             // 
             this.lblTotalPrice.AutoSize = true;
-            this.lblTotalPrice.Location = new System.Drawing.Point(701, 296);
+            this.lblTotalPrice.Location = new System.Drawing.Point(755, 332);
             this.lblTotalPrice.Name = "lblTotalPrice";
             this.lblTotalPrice.Size = new System.Drawing.Size(0, 13);
             this.lblTotalPrice.TabIndex = 4;
+            this.lblTotalPrice.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // btnSave
             // 
@@ -112,7 +113,7 @@ namespace PCConfigurationTool.WinFormsPresentation
             // chbCoefficient
             // 
             this.chbCoefficient.AutoSize = true;
-            this.chbCoefficient.Location = new System.Drawing.Point(493, 336);
+            this.chbCoefficient.Location = new System.Drawing.Point(493, 334);
             this.chbCoefficient.Name = "chbCoefficient";
             this.chbCoefficient.Size = new System.Drawing.Size(76, 17);
             this.chbCoefficient.TabIndex = 7;
@@ -122,7 +123,7 @@ namespace PCConfigurationTool.WinFormsPresentation
             // 
             // tbxCoefficient
             // 
-            this.tbxCoefficient.Location = new System.Drawing.Point(588, 334);
+            this.tbxCoefficient.Location = new System.Drawing.Point(588, 332);
             this.tbxCoefficient.Name = "tbxCoefficient";
             this.tbxCoefficient.Size = new System.Drawing.Size(46, 20);
             this.tbxCoefficient.TabIndex = 8;
