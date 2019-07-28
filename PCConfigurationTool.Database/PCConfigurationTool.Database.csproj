@@ -106,7 +106,6 @@
     <Compile Include="Models\PCConfiguration.cs" />
     <Compile Include="PCConfigurationContext.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Services\Database\DatabaseService.cs" />
     <Compile Include="Services\Database\PCComponentDatabaseService.cs" />
     <Compile Include="Services\Database\PCConfigurationDatabaseService.cs" />
   </ItemGroup>

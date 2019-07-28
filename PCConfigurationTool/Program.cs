@@ -23,13 +23,8 @@ namespace PCConfigurationTool
 
             IUnityContainer container = new UnityContainer();
             Bootstrapper bootstrapper = new Bootstrapper(container);
-
-            var a = container.Resolve<IDatabaseService>();
-
+            
             Form form = container.Resolve<IEntryView>() as Form;
-
-            //container.Resolve<IFormManager>().ShowModalForm<form>();
-
             Application.Run(form);
         }
     }

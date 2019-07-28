@@ -23,7 +23,6 @@ namespace PCConfigurationTool.Database
 
         public void RegisterServices()
         {
-            container.RegisterType<IDatabaseService, DatabaseService>();
             container.RegisterType<IPCComponentDatabaseService, PCComponentDatabaseService>();
             container.RegisterType<IPCConfigurationDatabaseService, PCConfigurationDatabaseService>();
         }

@@ -212,7 +212,6 @@ namespace PCConfigurationTool.WinFormsPresentation
             this.picComponentPicture.Size = new System.Drawing.Size(102, 109);
             this.picComponentPicture.TabIndex = 12;
             this.picComponentPicture.TabStop = false;
-            this.picComponentPicture.Visible = false;
             // 
             // label1
             // 

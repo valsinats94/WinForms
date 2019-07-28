@@ -71,6 +71,7 @@ namespace PCConfigurationTool.WinFormsPresentation
             addComponentViewModel.Image = ImageConverter.CopyImageToByteArray(picComponentPicture.Image);
             addComponentViewModel.Manufacturer = tbxManufacturer.Text;
             addComponentViewModel.Name = tbxName.Text;
+            addComponentViewModel.Code = tbxCode.Text;
 
             // TODO UI валидация за decimal
             decimal componentPrice;

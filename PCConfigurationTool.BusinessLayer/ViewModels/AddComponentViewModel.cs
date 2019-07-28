@@ -65,6 +65,9 @@ namespace PCConfigurationTool.BusinessLayer.ViewModels
 
         private ValidationResult CodeExistsValidation(string value)
         {
+            if (string.IsNullOrWhiteSpace(value))
+                return new ValidationResult(ErrorLevel.Critical, "Code is mandatory to be entered!");
+
             if (container.Resolve<IPCComponentDatabaseService>().CheckForExistingCode(value))
                 return new ValidationResult(ErrorLevel.Critical, "Already exists component with entered code");
 
