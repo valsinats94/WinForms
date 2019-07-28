@@ -1,16 +1,15 @@
 ﻿using PCConfigurationTool.Core.Interfaces.ViewModels;
 using PCConfigurationTool.Core.Interfaces.Views;
+using PCConfigurationTool.WinFormsPresentation.Views;
 using System;
 using System.Drawing;
 using System.Windows.Forms;
 using Unity;
-using PCConfigurationTool.Core.Common.Helpers;
 using ImageConverter = PCConfigurationTool.Core.Common.Helpers.ImageConverter;
-using PCConfigurationTool.Core.Interfaces;
 
 namespace PCConfigurationTool.WinFormsPresentation
 {
-    public partial class AddComponentForm : Form, IAddComponentView
+    public partial class AddComponentForm : FormBase, IAddComponentView
     {
         #region Declaration
 
@@ -102,32 +101,12 @@ namespace PCConfigurationTool.WinFormsPresentation
             Dispose();
         }
 
-        private void txtNumericDecimal_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) &&
-                (e.KeyChar != '.'))
-            {
-                e.Handled = true;
-            }
-
-            // only allow one decimal point
-            if ((e.KeyChar == '.') && ((sender as TextBox).Text.IndexOf('.') > -1))
-            {
-                e.Handled = true;
-            }
-        }
-
         private void ltvComponents_SelectedIndexChanged(object sender, EventArgs e)
         {
 
         }
 
         #endregion       
-
-        public bool ThumbnailCallback()
-        {
-            return false;
-        }
 
         private void ClearForm()
         {

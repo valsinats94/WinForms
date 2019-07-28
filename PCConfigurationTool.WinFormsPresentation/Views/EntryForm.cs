@@ -1,12 +1,13 @@
 ﻿using PCConfigurationTool.Core.Interfaces;
 using PCConfigurationTool.Core.Interfaces.Views;
+using PCConfigurationTool.WinFormsPresentation.Views;
 using System;
 using System.Windows.Forms;
 using Unity;
 
 namespace PCConfigurationTool.WinFormsPresentation
 {
-    public partial class EntryForm : Form, IEntryView
+    public partial class EntryForm : FormBase, IEntryView
     {
         #region Declaration
 

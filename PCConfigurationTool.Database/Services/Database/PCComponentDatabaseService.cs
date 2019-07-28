@@ -32,7 +32,9 @@ namespace PCConfigurationTool.Database.Services.Database
         {
             using (PCConfigurationContext context = new PCConfigurationContext())
             {
-                return context.PCComponents.Where(c => c.Status == Core.Common.EntityStatus.Current);
+                var components = context.PCComponents.Where(c => c.Status == Core.Common.EntityStatus.Current);
+
+                return components.ToList();
             }
         }
 

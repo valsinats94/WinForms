@@ -1,11 +1,8 @@
 ﻿using PCConfigurationTool.Core.Common;
 using PCConfigurationTool.Core.Interfaces.Models;
-using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace PCConfigurationTool.Database.Models
 {
@@ -63,6 +60,8 @@ namespace PCConfigurationTool.Database.Models
         }
 
         decimal IPCConfiguration.TotalPrice { get; set; }
+
+        public ConfigurationType ConfigurationType { get; set; }
 
         public EntityStatus Status { get; set; }
 

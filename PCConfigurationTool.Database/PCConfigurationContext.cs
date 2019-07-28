@@ -19,6 +19,8 @@ namespace PCConfigurationTool.Database
 
         public DbSet<PCComponent> PCComponents { get; set; }
 
+        public DbSet<PCConfiguration> PCConfigurations { get; set; }
+
         protected override void OnModelCreating(DbModelBuilder builder)
         {
             base.OnModelCreating(builder);

@@ -3,6 +3,7 @@ using PCConfigurationTool.Core.Interfaces.Models;
 using PCConfigurationTool.Core.Interfaces.Services;
 using PCConfigurationTool.Core.Interfaces.ViewModels;
 using System.Collections.Generic;
+using System.Linq;
 using Unity;
 
 namespace PCConfigurationTool.BusinessLayer.ViewModels
@@ -17,14 +18,14 @@ namespace PCConfigurationTool.BusinessLayer.ViewModels
         private IPCComponent selectedComponent;
         private ICollection<IPCComponent> chosenPCComponents;
 
+        #endregion
+
+        #region Initialization
+
         public ConfigurePCViewModel(IUnityContainer container)
         {
             this.container = container;
         }
-
-        #endregion
-
-        #region Initialization
 
         #endregion
 
@@ -35,12 +36,14 @@ namespace PCConfigurationTool.BusinessLayer.ViewModels
             get
             {
                 if (pCComponents == null)
-                    pCComponents = container.Resolve<IPCComponentDatabaseService>().GetCurrentPCComponents() as ICollection<IPCComponent>;
+                {
+                    pCComponents = InitializeComponents(); 
+                }
 
                 return pCComponents;
             }
         }
-
+        
         public ICollection<IPCComponent> ChosenPCComponents
         {
             get
@@ -74,10 +77,21 @@ namespace PCConfigurationTool.BusinessLayer.ViewModels
         public decimal? Coefficient { get; set; }
 
         public decimal TotalPrice { get; set; }
-        
+
         #endregion
 
         #region Methods
+
+        private ICollection<IPCComponent> InitializeComponents()
+        {
+            List<IPCComponent> result = new List<IPCComponent>();
+            foreach (IPCComponent component in container.Resolve<IPCComponentDatabaseService>().GetCurrentPCComponents())
+            {
+                result.Add(component);
+            }
+
+            return result;
+        }
 
         public void AddComponentToConfiguration(IPCComponent pCComponent)
         {
@@ -90,6 +104,7 @@ namespace PCConfigurationTool.BusinessLayer.ViewModels
         public bool ApplyChanges()
         {
             PCConfigurationBaseViewModel pCConfigurationViewModel = new PCConfigurationViewModel();
+            pCConfigurationViewModel.PCComponents = ChosenPCComponents.ToList();
             
             if ((ConfigurationType & ConfigurationType.ExtraOrdinary) == ConfigurationType.ExtraOrdinary)
             {
@@ -113,6 +128,12 @@ namespace PCConfigurationTool.BusinessLayer.ViewModels
 
             if (Validate().Count > 0)
                 return false;
+
+            IPCConfiguration pcConfiguration = container.Resolve<IPCConfiguration>();
+            pcConfiguration.PCComponents = ChosenPCComponents.ToList();
+            pcConfiguration.TotalPrice = TotalPrice;
+            pcConfiguration.ConfigurationType = ConfigurationType;
+            pcConfiguration.Status = Status;
 
             return true;
         }

@@ -17,7 +17,7 @@ namespace PCConfigurationTool.BusinessLayer.ViewModels
 
         #region Properties
 
-        protected IList<IPCComponent> PCComponents
+        public IList<IPCComponent> PCComponents
         {
             get
             {
@@ -25,6 +25,14 @@ namespace PCConfigurationTool.BusinessLayer.ViewModels
                     pcComponents = new List<IPCComponent>();
 
                 return pcComponents;
+            }
+            set
+            {
+                if (value == pcComponents)
+                    return;
+
+                pcComponents = value;
+                //CalculateTotalConfigurationPrice();
             }
         }
 

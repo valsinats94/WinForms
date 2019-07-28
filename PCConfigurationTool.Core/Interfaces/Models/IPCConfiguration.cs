@@ -13,6 +13,8 @@ namespace PCConfigurationTool.Core.Interfaces.Models
 
         ICollection<IPCComponent> PCComponents { get; set; }
 
+        ConfigurationType ConfigurationType { get; set; }
+
         EntityStatus Status { get; set; }
     }
 }
