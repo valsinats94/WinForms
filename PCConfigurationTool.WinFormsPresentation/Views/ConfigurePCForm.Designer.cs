@@ -127,6 +127,7 @@ namespace PCConfigurationTool.WinFormsPresentation
             this.tbxCoefficient.Name = "tbxCoefficient";
             this.tbxCoefficient.Size = new System.Drawing.Size(46, 20);
             this.tbxCoefficient.TabIndex = 8;
+            this.tbxCoefficient.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tbxCoefficient_KeyPress);
             // 
             // btnAddComponent
             // 

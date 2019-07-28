@@ -58,64 +58,12 @@ namespace PCConfigurationTool.WinFormsPresentation
 
         #region Methods
 
-        private void InitializaDefaultData()
-        {
-            InitializeComponentsToChooseForm();
-        }
-
-        private void InitializaDefaultState()
-        {
-            btnApply.IsAccessible = true;
-            btnApply.Enabled = true;
-            btnApply.Visible = true;
-
-            btnSave.IsAccessible = false;
-            btnSave.Enabled = false;
-            btnSave.Visible = false;
-
-            btnAddComponent.Enabled = false;
-            tbxCoefficient.Enabled = false;
-        }
-
-        private void InitializeComponentsToChooseForm()
-        {
-            cbPCComponents.DataSource = PCComponents;
-            cbPCComponents.DisplayMember = "Name";
-            cbPCComponents.SelectedValueChanged += SelectedComponentChangedEvent;
-        }
-
-        private void SelectedComponentChangedEvent(object sender, EventArgs e)
-        {
-            configurePCViewModel.SelectedComponent = cbPCComponents.SelectedValue as IPCComponent;
-
-            if (configurePCViewModel.SelectedComponent != null)
-            {
-                btnAddComponent.Enabled = true;
-                ShowPCComponentDataOnView(configurePCViewModel.SelectedComponent);
-            }            
-        }
-
-        private void ShowPCComponentDataOnView(IPCComponent selectedComponent)
-        {
-            if (selectedComponent.Image != null)
-            {
-                Image.GetThumbnailImageAbort myCallback = new Image.GetThumbnailImageAbort(ThumbnailCallback);
-                Bitmap myBitmap = new Bitmap(Core.Common.Helpers.ImageConverter.GetImageFromByteArray(selectedComponent.Image));
-                Image myThumbnail = myBitmap.GetThumbnailImage(102, 109, myCallback, IntPtr.Zero);
-                picComponentPicture.Image = myThumbnail;
-            }
-
-            tbxManufacturer.Text = selectedComponent.Manufacturer;
-            tbxPrice.Text = selectedComponent.Price.ToString();
-            rtbxDescription.Text = selectedComponent.Description;
-        }
-
-        #endregion
+        #region Events
 
         private void btnAddComponent_Click(object sender, EventArgs e)
         {
             if (cbPCComponents.SelectedItem == null || configurePCViewModel.SelectedComponent == null)
-                return;               
+                return;
 
             configurePCViewModel.AddComponentToConfiguration(configurePCViewModel.SelectedComponent);
             AddComponentToChosenListViewItems(configurePCViewModel.SelectedComponent);
@@ -123,7 +71,7 @@ namespace PCConfigurationTool.WinFormsPresentation
 
         private void AddComponentToChosenListViewItems(IPCComponent selectedComponent)
         {
-            ListViewItem lvi = new ListViewItem(selectedComponent.Name);        
+            ListViewItem lvi = new ListViewItem(selectedComponent.Name);
             lvi.SubItems.Add(selectedComponent.Manufacturer);
             lvi.SubItems.Add(selectedComponent.Description);
             lvi.SubItems.Add(selectedComponent.Price.ToString());
@@ -131,7 +79,7 @@ namespace PCConfigurationTool.WinFormsPresentation
         }
 
         private void chbCoefficient_CheckedChanged(object sender, EventArgs e)
-        {            
+        {
             tbxCoefficient.Enabled = chbCoefficient.Checked;
         }
 
@@ -189,5 +137,67 @@ namespace PCConfigurationTool.WinFormsPresentation
                 Dispose();
             }
         }
+
+        private void SelectedComponentChangedEvent(object sender, EventArgs e)
+        {
+            configurePCViewModel.SelectedComponent = cbPCComponents.SelectedValue as IPCComponent;
+
+            if (configurePCViewModel.SelectedComponent != null)
+            {
+                btnAddComponent.Enabled = true;
+                ShowPCComponentDataOnView(configurePCViewModel.SelectedComponent);
+            }
+        }
+
+        private void tbxCoefficient_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            base.txtNumericDecimal_KeyPress(sender, e);
+        }
+
+        #endregion
+
+        private void InitializaDefaultData()
+        {
+            InitializeComponentsToChooseForm();
+        }
+
+        private void InitializaDefaultState()
+        {
+            btnApply.IsAccessible = true;
+            btnApply.Enabled = true;
+            btnApply.Visible = true;
+
+            btnSave.IsAccessible = false;
+            btnSave.Enabled = false;
+            btnSave.Visible = false;
+
+            btnAddComponent.Enabled = false;
+            tbxCoefficient.Enabled = false;
+        }
+
+        private void InitializeComponentsToChooseForm()
+        {
+            cbPCComponents.DataSource = PCComponents;
+            cbPCComponents.DisplayMember = "Name";
+            cbPCComponents.SelectedValueChanged += SelectedComponentChangedEvent;
+        }        
+
+        private void ShowPCComponentDataOnView(IPCComponent selectedComponent)
+        {
+            if (selectedComponent.Image != null)
+            {
+                Image.GetThumbnailImageAbort myCallback = new Image.GetThumbnailImageAbort(ThumbnailCallback);
+                Bitmap myBitmap = new Bitmap(Core.Common.Helpers.ImageConverter.GetImageFromByteArray(selectedComponent.Image));
+                Image myThumbnail = myBitmap.GetThumbnailImage(102, 109, myCallback, IntPtr.Zero);
+                picComponentPicture.Image = myThumbnail;
+            }
+
+            tbxManufacturer.Text = selectedComponent.Manufacturer;
+            tbxPrice.Text = selectedComponent.Price.ToString();
+            rtbxDescription.Text = selectedComponent.Description;
+        }
+
+
+        #endregion
     }
 }

@@ -106,6 +106,11 @@ namespace PCConfigurationTool.WinFormsPresentation
 
         }
 
+        private void tbxPrice_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            txtNumericDecimal_KeyPress(sender, e);
+        }
+
         #endregion       
 
         private void ClearForm()

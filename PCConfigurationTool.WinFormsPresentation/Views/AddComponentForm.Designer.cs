@@ -77,7 +77,7 @@ namespace PCConfigurationTool.WinFormsPresentation
             this.ltvComponents.UseCompatibleStateImageBehavior = false;
             this.ltvComponents.View = System.Windows.Forms.View.Details;
             this.ltvComponents.SelectedIndexChanged += new System.EventHandler(this.ltvComponents_SelectedIndexChanged);
-            this.ltvComponents.Columns.Add("Name",155);
+            this.ltvComponents.Columns.Add("Name", 155);
             this.ltvComponents.Columns.Add("Manufacturer", 190);
             this.ltvComponents.Columns.Add("Description", 295);
             this.ltvComponents.Columns.Add("Price", -2, HorizontalAlignment.Right);
@@ -170,6 +170,7 @@ namespace PCConfigurationTool.WinFormsPresentation
             this.tbxPrice.Name = "tbxPrice";
             this.tbxPrice.Size = new System.Drawing.Size(160, 20);
             this.tbxPrice.TabIndex = 10;
+            this.tbxPrice.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tbxPrice_KeyPress);
             // 
             // btnAddPicture
             // 
