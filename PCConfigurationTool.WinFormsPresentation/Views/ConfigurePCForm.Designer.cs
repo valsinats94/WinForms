@@ -87,7 +87,7 @@ namespace PCConfigurationTool.WinFormsPresentation
             // lblTotalPrice
             // 
             this.lblTotalPrice.AutoSize = true;
-            this.lblTotalPrice.Location = new System.Drawing.Point(755, 332);
+            this.lblTotalPrice.Location = new System.Drawing.Point(729, 332);
             this.lblTotalPrice.Name = "lblTotalPrice";
             this.lblTotalPrice.Size = new System.Drawing.Size(0, 13);
             this.lblTotalPrice.TabIndex = 4;

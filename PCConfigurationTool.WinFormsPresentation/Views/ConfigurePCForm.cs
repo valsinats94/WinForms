@@ -190,8 +190,8 @@ namespace PCConfigurationTool.WinFormsPresentation
             {
                 Image.GetThumbnailImageAbort myCallback = new Image.GetThumbnailImageAbort(ThumbnailCallback);
                 Bitmap myBitmap = new Bitmap(Core.Common.Helpers.ImageConverter.GetImageFromByteArray(selectedComponent.Image));
-                //Image myThumbnail = myBitmap.GetThumbnailImage(102, 109, myCallback, IntPtr.Zero);
-                picComponentPicture.Image = myBitmap;
+                Image myThumbnail = myBitmap.GetThumbnailImage(102, 109, myCallback, IntPtr.Zero);
+                picComponentPicture.Image = myThumbnail;
             }
 
             tbxManufacturer.Text = selectedComponent.Manufacturer;
