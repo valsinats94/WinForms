@@ -12,5 +12,7 @@ namespace PCConfigurationTool.Core.Interfaces.Services
         void Add(IPCConfiguration configuration);
 
         void Delete(IPCConfiguration configuration);
+
+        IEnumerable<IPCConfiguration> GetActivePCConfigurations();
     }
 }

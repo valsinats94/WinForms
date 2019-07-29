@@ -1,23 +1,27 @@
 ﻿using PCConfigurationTool.Core.Common;
 using PCConfigurationTool.Core.Interfaces.Models;
+using PCConfigurationTool.Core.Interfaces.Services;
+using PCConfigurationTool.Database.Services.Database;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
+using Unity;
 
 namespace PCConfigurationTool.Database.Models
 {
     public class PCComponent : IPCComponent
     {
         #region Declarations
-
+        
         private ObservableCollection<IPCConfiguration> pcConfigurations;
 
         #endregion
 
         #region Initialization
-        
+       
+
         public PCComponent()
         {
             Configurations = new HashSet<PCConfiguration>();
@@ -56,7 +60,7 @@ namespace PCConfigurationTool.Database.Models
             {
                 if (pcConfigurations == null)
                 {
-                    pcConfigurations = new ObservableCollection<IPCConfiguration>(Configurations);
+                    pcConfigurations = new ObservableCollection<IPCConfiguration>(/*new PCConfigurationDatabaseService().GetActivePCConfigurations()*/);
                     pcConfigurations.CollectionChanged += Configurations_CollectionChanged;
                 }
 

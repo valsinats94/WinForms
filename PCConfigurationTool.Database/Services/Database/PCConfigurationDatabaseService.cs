@@ -30,5 +30,16 @@ namespace PCConfigurationTool.Database.Services.Database
                 context.SaveChanges();
             }
         }
+
+        public IEnumerable<IPCConfiguration> GetActivePCConfigurations()
+        {
+            IEnumerable<IPCConfiguration> result;
+            using (PCConfigurationContext context = new PCConfigurationContext())
+            {
+                result = context.PCConfigurations.Where(pcc => pcc.Status == Core.Common.EntityStatus.Current);
+            }
+
+            return result;
+        }
     }
 }
