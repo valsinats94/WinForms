@@ -2,6 +2,7 @@
 using PCConfigurationTool.Core.Interfaces.Models;
 using PCConfigurationTool.Core.Interfaces.Services;
 using PCConfigurationTool.Database.Services.Database;
+using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.ComponentModel.DataAnnotations;
@@ -11,7 +12,7 @@ using Unity;
 
 namespace PCConfigurationTool.Database.Models
 {
-    public class PCComponent : IPCComponent
+    public class PCComponent : IPCComponent, IEquatable<PCComponent>
     {
         #region Declarations
         
@@ -90,6 +91,39 @@ namespace PCConfigurationTool.Database.Models
                 }
             }
         }
+
+        #region Overrides
+        
+        public override int GetHashCode()
+        {
+            var hashCode = -1045279884;
+            hashCode = hashCode * -1521134295 + ID.GetHashCode();
+            hashCode = hashCode * -1521134295 + EqualityComparer<string>.Default.GetHashCode(Code);
+            return hashCode;
+        }
+
+        public override bool Equals(object obj)
+        {
+            return Equals(obj as PCComponent);
+        }
+
+        public bool Equals(PCComponent other)
+        {
+            return other != null &&
+                   Code == other.Code;
+        }
+
+        public static bool operator ==(PCComponent component1, PCComponent component2)
+        {
+            return EqualityComparer<PCComponent>.Default.Equals(component1, component2);
+        }
+
+        public static bool operator !=(PCComponent component1, PCComponent component2)
+        {
+            return !(component1 == component2);
+        }
+
+        #endregion
 
         #endregion
     }
