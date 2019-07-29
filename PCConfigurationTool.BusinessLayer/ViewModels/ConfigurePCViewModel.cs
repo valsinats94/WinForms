@@ -132,7 +132,7 @@ namespace PCConfigurationTool.BusinessLayer.ViewModels
             IPCConfigurationDatabaseService dbService = container.Resolve<IPCConfigurationDatabaseService>();
 
             IPCConfiguration pcConfiguration = container.Resolve<IPCConfiguration>();
-            pcConfiguration.PCComponents = AddComponents(dbService, pcConfiguration);
+            AddComponents(dbService, pcConfiguration);
             pcConfiguration.TotalPrice = TotalPrice;
             pcConfiguration.ConfigurationType = ConfigurationType;
             pcConfiguration.Status = Status;
@@ -142,20 +142,16 @@ namespace PCConfigurationTool.BusinessLayer.ViewModels
             return true;
         }
 
-        private ICollection<IPCComponent> AddComponents(IPCConfigurationDatabaseService dbService, IPCConfiguration pcConfiguration)
+        private void AddComponents(IPCConfigurationDatabaseService dbService, IPCConfiguration pcConfiguration)
         {
-            ICollection<IPCComponent> result = new List<IPCComponent>();
-
             foreach (IPCComponent component in ChosenPCComponents)
             {
                 IPCComponent tmpComponent = container.Resolve<IPCComponentDatabaseService>()
                                                                             .GetCurrentPCComponents()
                                                                             .FirstOrDefault(c => c.Code.Equals(component.Code, System.StringComparison.OrdinalIgnoreCase));
                 tmpComponent.PCConfigurations.Add(pcConfiguration);
-                result.Add(tmpComponent);
+                pcConfiguration.PCComponents.Add(tmpComponent);
             }
-
-            return result;
         }
 
         #endregion

@@ -11,7 +11,7 @@ namespace PCConfigurationTool.Core.Interfaces.Models
     {
         decimal TotalPrice { get; set; }
 
-        ICollection<IPCComponent> PCComponents { get; set; }
+        ICollection<IPCComponent> PCComponents { get; }
 
         ConfigurationType ConfigurationType { get; set; }
 

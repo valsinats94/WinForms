@@ -1,6 +1,7 @@
 ﻿using PCConfigurationTool.Core.Common;
 using PCConfigurationTool.Core.Interfaces.Models;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
@@ -11,7 +12,7 @@ namespace PCConfigurationTool.Database.Models
     {
         #region Declarations
 
-        private ICollection<IPCConfiguration> pcConfigurations;
+        private ObservableCollection<IPCConfiguration> pcConfigurations;
 
         #endregion
 
@@ -19,7 +20,7 @@ namespace PCConfigurationTool.Database.Models
         
         public PCComponent()
         {
-            PCConfigurations = new List<PCConfiguration>();
+            Configurations = new HashSet<PCConfiguration>();
         }
 
         #endregion
@@ -47,32 +48,42 @@ namespace PCConfigurationTool.Database.Models
 
         public byte[] Image { get; set; }
 
-        public List<PCConfiguration> PCConfigurations
+        public virtual ICollection<PCConfiguration> Configurations { get; set; }
+        
+        public ICollection<IPCConfiguration> PCConfigurations
         {
             get
             {
                 if (pcConfigurations == null)
                 {
-                    return null;
+                    pcConfigurations = new ObservableCollection<IPCConfiguration>(Configurations);
+                    pcConfigurations.CollectionChanged += Configurations_CollectionChanged;
                 }
 
-                return pcConfigurations.Select(x => (PCConfiguration)x).ToList();
-            }
-            set
-            {
-                pcConfigurations = value.Select(x => (IPCConfiguration)x).ToList();
-            }
-        }
-        
-        ICollection<IPCConfiguration> IPCComponent.PCConfigurations
-        {
-            get
-            {
                 return pcConfigurations;
             }
-            set
+        }
+
+        #endregion
+
+        #region Methods
+
+        private void Configurations_CollectionChanged(object sender, System.Collections.Specialized.NotifyCollectionChangedEventArgs e)
+        {
+            if (e.Action == System.Collections.Specialized.NotifyCollectionChangedAction.Add && e.NewItems != null)
             {
-                pcConfigurations = value;
+                foreach (var item in e.NewItems)
+                {
+                    this.Configurations.Add(item as PCConfiguration);
+                }
+            }
+
+            if (e.Action == System.Collections.Specialized.NotifyCollectionChangedAction.Remove && e.OldItems != null)
+            {
+                foreach (var item in e.OldItems)
+                {
+                    this.Configurations.Remove(item as PCConfiguration);
+                }
             }
         }
 

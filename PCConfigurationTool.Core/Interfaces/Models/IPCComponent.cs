@@ -23,6 +23,6 @@ namespace PCConfigurationTool.Core.Interfaces.Models
 
         EntityStatus Status { get; set; }
 
-        ICollection<IPCConfiguration> PCConfigurations { get; set; }
+        ICollection<IPCConfiguration> PCConfigurations { get; }
     }
 }
