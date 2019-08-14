@@ -146,10 +146,6 @@ namespace PCConfigurationTool.BusinessLayer.ViewModels
         {
             foreach (IPCComponent component in ChosenPCComponents)
             {
-                IPCComponent tmpComponent = container.Resolve<IPCComponentDatabaseService>()
-                                                                            .GetCurrentPCComponents()
-                                                                            .FirstOrDefault(c => c.Code.Equals(component.Code, System.StringComparison.OrdinalIgnoreCase));
-
                 pcConfiguration.PCComponents.Add(component);
             }
         }
