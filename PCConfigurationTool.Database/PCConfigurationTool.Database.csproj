@@ -101,7 +101,12 @@
     <Compile Include="Migrations\201907281230521_Component_Code.Designer.cs">
       <DependentUpon>201907281230521_Component_Code.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201908141543315_AddChangeLog.cs" />
+    <Compile Include="Migrations\201908141543315_AddChangeLog.Designer.cs">
+      <DependentUpon>201908141543315_AddChangeLog.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="Models\ChangeLog.cs" />
     <Compile Include="Models\PCComponent.cs" />
     <Compile Include="Models\PCConfiguration.cs" />
     <Compile Include="PCConfigurationContext.cs" />
@@ -140,10 +145,13 @@
     <EmbeddedResource Include="Migrations\201907281230521_Component_Code.resx">
       <DependentUpon>201907281230521_Component_Code.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201908141543315_AddChangeLog.resx">
+      <DependentUpon>201908141543315_AddChangeLog.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
     <PostBuildEvent>
-</PostBuildEvent>
+    </PostBuildEvent>
   </PropertyGroup>
 </Project>

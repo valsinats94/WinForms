@@ -8,6 +8,8 @@ namespace PCConfigurationTool.Database.Services.Database
 {
     public class PCComponentDatabaseService : IPCComponentDatabaseService
     {
+        #region Methods
+
         public void Add(IPCComponent component)
         {
             using (PCConfigurationContext context = new PCConfigurationContext())
@@ -56,5 +58,7 @@ namespace PCConfigurationTool.Database.Services.Database
                 return context.PCComponents.Any(pc => pc.Code.Equals(code, System.StringComparison.OrdinalIgnoreCase));
             }
         }
+
+        #endregion
     }
 }
